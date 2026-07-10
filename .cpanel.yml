@@ -1,0 +1,33 @@
+---
+# =====================================================================
+#  cPanel Git Version Control — auto-deploy Laravel (Rumahweb Unlimited M)
+#  cPanel user: lakk5493   |   app path: /home/lakk5493/laravel_app
+# ---------------------------------------------------------------------
+#  Alur update setelah setup:
+#     lokal:  git push            ->  GitHub
+#     cPanel: Git Version Control ->  "Update from Remote" lalu "Deploy HEAD Commit"
+#
+#  Deploy ini menyalin KODE + membangun ulang cache Laravel.
+#  Yang TIDAK ikut Git (di-gitignore) diurus terpisah:
+#     - vendor/       -> jalankan `composer install --no-dev` di Terminal cPanel
+#                        (perlu hanya saat composer.json/lock berubah)
+#     - public/build/ -> hasil `npm run build` di lokal, upload saat frontend berubah
+#     - .env          -> dibuat sekali di server, TIDAK pernah tertimpa deploy
+#  Karena memakai `cp` (bukan rsync --delete), file server di atas tetap aman.
+#
+#  Migration baru: jalankan manual di Terminal cPanel setelah deploy:
+#     cd ~/laravel_app && php artisan migrate --force
+# =====================================================================
+
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/lakk5493/laravel_app
+    - /bin/mkdir -p $DEPLOYPATH
+    # Salin semua kode terlacak. Dotfile (.git/.env) tidak ikut karena glob '*'.
+    # vendor/, public/build/, .env di server tetap utuh (cp mengoverlay, tak menghapus).
+    - /bin/cp -R * $DEPLOYPATH/
+    # Bangun ulang cache Laravel. '|| true' agar deploy tetap sukses walau PATH PHP beda.
+    - cd $DEPLOYPATH && php artisan optimize:clear || true
+    - cd $DEPLOYPATH && php artisan config:cache || true
+    - cd $DEPLOYPATH && php artisan route:cache || true
+    - cd $DEPLOYPATH && php artisan view:cache || true
