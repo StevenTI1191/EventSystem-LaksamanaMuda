@@ -112,6 +112,10 @@ Route::domain(config('app.backstage_domain'))->group(function () {
     Route::get('/', [AuthenticatedSessionController::class, 'create'])->name('login');
     Route::post('/', [AuthenticatedSessionController::class, 'store']);
 
+    // SSO masuk dari Office Portal (token HMAC dari Apps Script office)
+    Route::get('/sso/office', [\App\Http\Controllers\Auth\OfficeSsoController::class, 'login'])
+        ->name('sso.office');
+
     // --- 2. ROUTE TERPROTEKSI ---
     Route::middleware('auth:pegawai')->group(function () {
 
