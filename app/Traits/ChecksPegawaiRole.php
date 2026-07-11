@@ -34,6 +34,11 @@ trait ChecksPegawaiRole
         $norm = static fn ($s) => strtolower(str_replace(' ', '', trim((string) $s)));
         $current = $norm($posisi);
 
+        // Manajemen = superuser: akses penuh ke SEMUA area (EM, Finance, dsb).
+        if ($current === 'manajemen') {
+            return;
+        }
+
         foreach ($allowed as $role) {
             if ($norm($role) === $current) {
                 return; // cocok → lanjut

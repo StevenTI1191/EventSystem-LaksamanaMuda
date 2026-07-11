@@ -90,7 +90,50 @@ class OfficeSsoController extends Controller
         Auth::guard('pegawai')->login($pegawai);
         $request->session()->regenerate();
 
-        return redirect()->to($this->dashboardFor($pegawai->posisi_pegawai));
+        // 8. Arahkan ke modul yang diklik (to) bila role mengizinkan, else area utama
+        $target = $this->resolveTarget($pegawai->posisi_pegawai, (string) $request->query('to', ''));
+        return redirect()->to($target);
+    }
+
+    /** Dashboard tujuan: modul yang diklik (to) jika diizinkan, else area utama role. */
+    private function resolveTarget(?string $posisi, string $to): string
+    {
+        $area = $this->normalizeArea($to);
+        if ($area !== '' && in_array($area, $this->allowedAreas($posisi), true)) {
+            return $this->dashboardForArea($area);
+        }
+        return $this->dashboardFor($posisi);
+    }
+
+    /** Area yang boleh diakses tiap posisi (Manajemen = semua). */
+    private function allowedAreas(?string $posisi): array
+    {
+        return match ($posisi) {
+            'Manajemen'      => ['manajemen', 'em', 'finance'],
+            'EventMarketing' => ['em'],
+            'Finance'        => ['finance'],
+            default          => [],
+        };
+    }
+
+    private function normalizeArea(string $to): string
+    {
+        return match (strtolower(trim($to))) {
+            'manajemen', 'management' => 'manajemen',
+            'finance', 'keuangan'     => 'finance',
+            'em', 'event_marketing', 'eventmarketing', 'event-marketing', 'marketing' => 'em',
+            default => '',
+        };
+    }
+
+    private function dashboardForArea(string $area): string
+    {
+        return match ($area) {
+            'manajemen' => route('manajemen.dashboard'),
+            'em'        => route('event.dashboard'),
+            'finance'   => route('finance.dashboard'),
+            default     => route('login'),
+        };
     }
 
     /** Cari pegawai berdasarkan office_uid, lalu email (bila sub email), lalu nama. */
@@ -117,8 +160,8 @@ class OfficeSsoController extends Controller
     private function posisiFromOrole(?string $orole): ?string
     {
         return match (strtolower(trim((string) $orole))) {
-            'manajemen', 'management', 'owner', 'admin' => 'Manajemen',
-            'finance', 'keuangan'                       => 'Finance',
+            'superadmin', 'manajemen', 'management', 'owner', 'admin' => 'Manajemen',
+            'finance', 'keuangan', 'finance_admin'                   => 'Finance',
             'eventmarketing', 'event_marketing', 'event-marketing', 'em', 'marketing' => 'EventMarketing',
             default => null,
         };

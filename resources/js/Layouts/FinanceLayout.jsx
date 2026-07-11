@@ -31,8 +31,9 @@ export default function FinanceLayout({ children }) {
     ];
 
     // Filter tombol sidebar sesuai akses efektif pegawai (auth.user.akses_menu).
+    // Array kosong = role tanpa konfigurasi (mis. Manajemen superuser) -> tampil penuh.
     const aksesKeys = user?.akses_menu;
-    const visibleItems = Array.isArray(aksesKeys)
+    const visibleItems = (Array.isArray(aksesKeys) && aksesKeys.length > 0)
         ? menuItems.filter((i) => aksesKeys.includes(i.key))
         : menuItems;
 
