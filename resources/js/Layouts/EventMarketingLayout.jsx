@@ -103,9 +103,10 @@ export default function EventMarketingLayout({ children }) {
                             className="object-contain w-12 h-12"
                         />
                     </div>
-                    <span className={`flex-1 ml-3 text-sm font-bold tracking-tight text-gray-800 ${isSidebarOpen ? '' : 'lg:hidden'}`}>
-                        Event Marketing
-                    </span>
+                    <div className={`flex-1 min-w-0 ml-3 ${isSidebarOpen ? '' : 'lg:hidden'}`}>
+                        <p className="text-sm font-bold leading-tight tracking-tight text-gray-900 truncate">Laksamana Muda</p>
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#A9791F] truncate mt-0.5">Event Marketing</p>
+                    </div>
                     <button
                         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                         className="hidden p-1.5 rounded-lg hover:bg-gray-100 text-gray-400 lg:block"
@@ -121,6 +122,7 @@ export default function EventMarketingLayout({ children }) {
                 </div>
 
                 {/* MENU */}
+                <p className={`px-4 mb-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 ${isSidebarOpen ? '' : 'lg:hidden'}`}>Menu</p>
                 <nav className="flex-1 px-3 space-y-1 overflow-y-auto">
                     {menuItems.map((item) => (
                         <Link

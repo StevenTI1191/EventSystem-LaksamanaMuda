@@ -121,9 +121,10 @@ export default function ManajemenLayout({ children }) {
                             className="object-contain w-12 h-12"
                         />
                     </div>
-                    <span className={`flex-1 ml-3 text-sm font-bold tracking-tight text-gray-800 ${isSidebarOpen ? '' : 'lg:hidden'}`}>
-                        Laksamana Muda
-                    </span>
+                    <div className={`flex-1 min-w-0 ml-3 ${isSidebarOpen ? '' : 'lg:hidden'}`}>
+                        <p className="text-sm font-bold leading-tight tracking-tight text-gray-900 truncate">Laksamana Muda</p>
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#A9791F] truncate mt-0.5">Manajemen</p>
+                    </div>
                     {/* Toggle collapse — desktop */}
                     <button
                         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -141,6 +142,7 @@ export default function ManajemenLayout({ children }) {
                 </div>
 
                 {/* MENU */}
+                <p className={`px-4 mb-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 ${isSidebarOpen ? '' : 'lg:hidden'}`}>Menu</p>
                 <nav className="flex-1 px-3 space-y-1 overflow-y-auto">
                     {menuItems.map((item) => (
                         <Link
@@ -162,7 +164,7 @@ export default function ManajemenLayout({ children }) {
                 {/* PROFILE & LOGOUT */}
                 <div className="p-4 border-t border-gray-100">
                     <div className={`flex items-center gap-3 p-2 mb-2 ${!isSidebarOpen && 'lg:justify-center'}`}>
-                        <div className="w-8 h-8 rounded-full bg-[#FF5722]/10 flex-shrink-0 flex items-center justify-center text-xs font-bold text-[#FF5722]">
+                        <div className="w-8 h-8 rounded-full bg-[#A9791F]/10 flex-shrink-0 flex items-center justify-center text-xs font-bold text-[#A9791F]">
                             {user.nama_pegawai ? user.nama_pegawai.substring(0, 2).toUpperCase() : 'ST'}
                         </div>
                         <div className={`overflow-hidden leading-tight ${isSidebarOpen ? '' : 'lg:hidden'}`}>

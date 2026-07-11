@@ -1,0 +1,1 @@
+import{r}from"./app-BYzh3hEq.js";function n(t,u=400){const e=r.useRef(null);return r.useEffect(()=>()=>clearTimeout(e.current),[]),(...c)=>{clearTimeout(e.current),e.current=setTimeout(()=>t(...c),u)}}export{n as u};

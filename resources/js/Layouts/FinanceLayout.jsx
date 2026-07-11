@@ -109,7 +109,10 @@ export default function FinanceLayout({ children }) {
                     <div className="flex items-center justify-center flex-shrink-0 overflow-hidden bg-black rounded-full w-14 h-14">
                         <img src="/images/LaksamanaLogo.png" alt="Laksamana Muda" className="object-contain w-12 h-12" />
                     </div>
-                    <span className={`flex-1 ml-3 text-sm font-bold tracking-tight text-gray-800 ${isSidebarOpen ? '' : 'lg:hidden'}`}>Finance</span>
+                    <div className={`flex-1 min-w-0 ml-3 ${isSidebarOpen ? '' : 'lg:hidden'}`}>
+                        <p className="text-sm font-bold leading-tight tracking-tight text-gray-900 truncate">Laksamana Muda</p>
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#A9791F] truncate mt-0.5">Finance</p>
+                    </div>
                     <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="hidden p-1.5 rounded-lg hover:bg-gray-100 text-gray-400 lg:block">
                         {isSidebarOpen ? <ChevronLeft size={18} /> : <ChevronRight size={18} />}
                     </button>
@@ -119,6 +122,7 @@ export default function FinanceLayout({ children }) {
                 </div>
 
                 {/* MENU */}
+                <p className={`px-4 mb-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 ${isSidebarOpen ? '' : 'lg:hidden'}`}>Menu</p>
                 <nav className="flex-1 px-3 space-y-1 overflow-y-auto">
                     {menuItems.map((item) => (
                         <Link key={item.name} href={item.href}
@@ -230,8 +234,8 @@ export default function FinanceLayout({ children }) {
                                 <div className="overflow-y-auto divide-y max-h-80 divide-gray-50">
                                     {notifications.length > 0 ? notifications.map(notif => (
                                         <div key={notif.id}
-                                            className={`flex items-start gap-3 px-4 py-3 transition-colors ${!notif.is_read ? 'bg-red-50/60' : 'hover:bg-gray-50'}`}>
-                                            <div className="flex items-center justify-center flex-shrink-0 w-9 h-9 mt-0.5 bg-orange-100 rounded-full">
+                                            className={`flex items-start gap-3 px-4 py-3 transition-colors ${!notif.is_read ? 'bg-[#FBF8F0]' : 'hover:bg-gray-50'}`}>
+                                            <div className="flex items-center justify-center flex-shrink-0 w-9 h-9 mt-0.5 bg-[#F2E9D3] rounded-full">
                                                 <Upload size={15} className="text-[#A9791F]" />
                                             </div>
                                             <div className="flex-1 min-w-0">
