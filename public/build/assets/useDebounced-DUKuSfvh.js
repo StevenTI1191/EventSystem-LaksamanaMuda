@@ -1,1 +1,0 @@
-import{r}from"./app-BO-k8U9t.js";function n(t,u=400){const e=r.useRef(null);return r.useEffect(()=>()=>clearTimeout(e.current),[]),(...c)=>{clearTimeout(e.current),e.current=setTimeout(()=>t(...c),u)}}export{n as u};

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\OfficeUser;
 use App\Traits\ChecksPegawaiRole;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 
 /**
@@ -35,6 +36,64 @@ class OfficeUsersController extends Controller
         ]);
     }
 
+    /** Tambah user Office baru (akun login) langsung dari Manajemen. */
+    public function store(Request $request)
+    {
+        $this->checkManajemen();
+
+        $data = $request->validate([
+            'name'       => 'required|string|max:255',
+            'pin'        => ['required', 'regex:/^\d{3,8}$/'],
+            'modules'    => 'present|array',
+            'modules.*'  => 'string',
+            'active'     => 'boolean',
+            'keterangan' => 'nullable|string|max:255',
+        ]);
+
+        $name = trim($data['name']);
+        $pin  = trim($data['pin']);
+
+        if (OfficeUser::whereRaw('LOWER(name) = ?', [mb_strtolower($name)])->exists()) {
+            return back()->with('error', 'Nama "' . $name . '" sudah dipakai user lain.');
+        }
+        foreach (OfficeUser::all() as $u) {
+            if (hash_equals((string) $u->pin, $pin)) {
+                return back()->with('error', 'PIN itu sudah dipakai user lain.');
+            }
+        }
+
+        // id unik: u-<slug nama>
+        $base = 'u-' . Str::slug($name, '');
+        $id = $base;
+        $n = 2;
+        while (OfficeUser::whereKey($id)->exists()) {
+            $id = $base . $n++;
+        }
+
+        OfficeUser::create([
+            'id'         => $id,
+            'name'       => $name,
+            'pin'        => $pin,
+            'role'       => null,
+            'modules'    => $this->sanitizeModules($data['modules']),
+            'active'     => $data['active'] ?? true,
+            'keterangan' => $data['keterangan'] ?? null,
+        ]);
+
+        return back()->with('success', 'User ' . $name . ' ditambahkan.');
+    }
+
+    public function destroy(string $id)
+    {
+        $this->checkManajemen();
+
+        $user = OfficeUser::findOrFail($id);
+        $name = $user->name;
+        $user->delete();
+
+        return back()->with('success', 'User ' . $name . ' dihapus.');
+    }
+
     public function update(Request $request, string $id)
     {
         $this->checkManajemen();
@@ -46,16 +105,18 @@ class OfficeUsersController extends Controller
             'modules.*' => 'string',
         ]);
 
-        $valid   = array_keys(config('office_modules'));
-        $modules = $data['modules'];
-
-        $modules = in_array('*', $modules, true)
-            ? ['*']
-            : array_values(array_intersect($modules, $valid));
-
-        $user->modules = $modules;
+        $user->modules = $this->sanitizeModules($data['modules']);
         $user->save();
 
         return back()->with('success', 'Akses modul ' . $user->name . ' diperbarui.');
+    }
+
+    /** '*' = akses penuh; selain itu hanya key modul valid. */
+    private function sanitizeModules(array $modules): array
+    {
+        if (in_array('*', $modules, true)) {
+            return ['*'];
+        }
+        return array_values(array_intersect($modules, array_keys(config('office_modules'))));
     }
 }
