@@ -25,6 +25,11 @@ class Pegawai extends Authenticatable
         'rekomendasi_rehire',
         'note_pegawai',
         'gaji_pokok', // ← tambahkan ini
+        'akses_menu', // daftar key menu sidebar yang boleh tampil (null = default role)
+    ];
+
+    protected $casts = [
+        'akses_menu' => 'array',
     ];
 
     protected $hidden = [

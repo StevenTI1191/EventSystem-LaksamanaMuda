@@ -26,48 +26,61 @@ export default function EventMarketingLayout({ children }) {
 
     const menuItems = [
         {
+            key: 'dashboard',
             name: 'Dashboard',
             icon: LayoutDashboard,
             href: route('event.dashboard'),
             active: currentPath === '/event-marketing/dashboard',
         },
         {
+            key: 'kalender',
             name: 'Kalender',
             icon: CalendarDays,
             href: route('em.jadwal.index'),
             active: currentPath.includes('/event-marketing/jadwal'),
         },
         {
+            key: 'events',
             name: 'Events',
             icon: Calendar,
             href: route('em.event.index'),
             active: currentPath.includes('/event-marketing/event'),
         },
         {
+            key: 'planning',
             name: 'Planning Event',
             icon: ClipboardList,
             href: route('em.planning.index'),
             active: currentPath.includes('/event-marketing/planning'),
         },
         {
+            key: 'client',
             name: 'Client',
             icon: Users,
             href: route('em.client.index'),
             active: currentPath.includes('/event-marketing/client'),
         },
         {
+            key: 'transaksi',
             name: 'Transaksi',
             icon: CreditCard,
             href: route('em.transaksi.index'),
             active: currentPath.includes('transaksi'),
         },
         {
+            key: 'appointment',
             name: 'Appointment',
             icon: CalendarCheck,
             href: route('em.appointment.index'),
             active: currentPath.includes('/event-marketing/appointment'),
         },
     ];
+
+    // Filter tombol sidebar sesuai akses efektif pegawai (auth.user.akses_menu).
+    const aksesKeys = user?.akses_menu;
+    const visibleItems = Array.isArray(aksesKeys)
+        ? menuItems.filter((i) => aksesKeys.includes(i.key))
+        : menuItems;
 
     return (
         <div className="min-h-screen bg-gray-50">
@@ -124,7 +137,7 @@ export default function EventMarketingLayout({ children }) {
                 {/* MENU */}
                 <p className={`px-4 mb-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 ${isSidebarOpen ? '' : 'lg:hidden'}`}>Menu</p>
                 <nav className="flex-1 px-3 space-y-1 overflow-y-auto">
-                    {menuItems.map((item) => (
+                    {visibleItems.map((item) => (
                         <Link
                             key={item.name}
                             href={item.href}

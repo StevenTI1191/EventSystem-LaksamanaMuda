@@ -233,6 +233,8 @@ Route::domain(config('app.backstage_domain'))->group(function () {
             ->name('manajemen.pegawai.destroy');
         Route::patch('/manajemen/pegawai/{id}/note', [\App\Http\Controllers\Manajemen\PegawaiController::class, 'updateNote'])
             ->name('manajemen.pegawai.note');
+        Route::patch('/manajemen/pegawai/{id}/akses', [\App\Http\Controllers\Manajemen\PegawaiController::class, 'updateAkses'])
+            ->name('manajemen.pegawai.akses');
 
         // --- NOTIFIKASI ---
         Route::get('/notifikasi', [\App\Http\Controllers\EventMarketing\NotifikasiController::class, 'index'])

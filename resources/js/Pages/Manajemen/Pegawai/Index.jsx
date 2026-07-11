@@ -1,10 +1,10 @@
 ﻿import ManajemenLayout from '@/Layouts/ManajemenLayout';
 import Pagination from '@/Components/Pagination';
 import { Head, Link, router, usePage } from '@inertiajs/react';
-import { Plus, Pencil, Trash2, X, Phone, Mail, Briefcase, Calendar, Wallet } from 'lucide-react';
+import { Plus, Pencil, Trash2, X, Phone, Mail, Briefcase, Calendar, Wallet, SlidersHorizontal, Lock, Check } from 'lucide-react';
 import { useState } from 'react';
 
-export default function PegawaiIndex({ auth, internal, eksternal }) {
+export default function PegawaiIndex({ auth, internal, eksternal, aksesSpec = {} }) {
     const { flash } = usePage().props;
     const [noteModal, setNoteModal]         = useState(null);
     const [deletePegawai, setDeletePegawai] = useState(null);
@@ -12,6 +12,36 @@ export default function PegawaiIndex({ auth, internal, eksternal }) {
     const [noteText, setNoteText] = useState('');
     const [saving, setSaving] = useState(false);
     const [viewModal, setViewModal] = useState(null);
+
+    // ── Akses menu sidebar per pegawai ──
+    const [aksesModal, setAksesModal] = useState(null); // pegawai yang diedit
+    const [aksesSel, setAksesSel]     = useState([]);   // key non-locked terpilih
+    const [savingAkses, setSavingAkses] = useState(false);
+
+    const specFor = (pegawai) => aksesSpec?.[pegawai?.posisi_pegawai] || [];
+
+    const openAkses = (pegawai) => {
+        const toggleable = specFor(pegawai).filter(i => !i.locked);
+        const initial = Array.isArray(pegawai.akses_menu)
+            ? pegawai.akses_menu.filter(k => toggleable.some(i => i.key === k))
+            : toggleable.filter(i => i.default).map(i => i.key);
+        setAksesSel(initial);
+        setAksesModal(pegawai);
+    };
+
+    const toggleAkses = (key) =>
+        setAksesSel(prev => prev.includes(key) ? prev.filter(k => k !== key) : [...prev, key]);
+
+    const saveAkses = () => {
+        setSavingAkses(true);
+        router.patch(route('manajemen.pegawai.akses', aksesModal.id_pegawai), {
+            akses_menu: aksesSel,
+        }, {
+            preserveScroll: true,
+            onSuccess: () => { setSavingAkses(false); setAksesModal(null); },
+            onError:   () => setSavingAkses(false),
+        });
+    };
 
     const handleDelete = (pegawai) => setDeletePegawai(pegawai);
     const confirmDeletePegawai = () => {
@@ -44,7 +74,7 @@ export default function PegawaiIndex({ auth, internal, eksternal }) {
 
     const PegawaiCard = ({ pegawai }) => (
         <div className="flex items-start gap-4 p-4 bg-white border border-gray-100 shadow-sm rounded-2xl">
-            <div className="flex items-center justify-center flex-shrink-0 w-14 h-14 text-lg font-black rounded-full bg-red-50 text-[#A9791F]">
+            <div className="flex items-center justify-center flex-shrink-0 w-14 h-14 text-lg font-black rounded-full bg-[#F2E9D3] text-[#A9791F]">
                 {pegawai.nama_pegawai.substring(0, 2).toUpperCase()}
             </div>
 
@@ -111,6 +141,14 @@ export default function PegawaiIndex({ auth, internal, eksternal }) {
                     >
                         Note {pegawai.note_pegawai ? '(edit)' : '+'}
                     </button>
+                    {specFor(pegawai).length > 0 && (
+                        <button
+                            onClick={() => openAkses(pegawai)}
+                            className="inline-flex items-center gap-1 px-4 py-1 text-xs font-bold text-[#A9791F] transition-colors bg-[#F2E9D3] rounded-lg hover:bg-[#E8D7A9]"
+                        >
+                            <SlidersHorizontal size={12} /> Akses
+                        </button>
+                    )}
                 </div>
             </div>
         </div>
@@ -179,7 +217,7 @@ export default function PegawaiIndex({ auth, internal, eksternal }) {
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
                     <div className="w-full max-w-md overflow-hidden bg-white shadow-xl rounded-2xl">
                         {/* Header */}
-                        <div className="relative p-6 bg-gradient-to-br from-[#A9791F] to-[#FF5722]">
+                        <div className="relative p-6 bg-gradient-to-br from-[#A9791F] to-[#C8961F]">
                             <button
                                 onClick={() => setViewModal(null)}
                                 className="absolute top-4 right-4 p-1.5 text-white/70 hover:text-white hover:bg-white/20 rounded-lg transition-colors"
@@ -348,6 +386,74 @@ export default function PegawaiIndex({ auth, internal, eksternal }) {
                             <button onClick={confirmDeletePegawai} disabled={deleting}
                                 className="flex-1 py-2.5 bg-red-500 text-white font-bold rounded-xl hover:bg-red-600 disabled:opacity-60">
                                 {deleting ? 'Menghapus...' : 'Hapus'}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+            {/* Modal Atur Akses Menu Sidebar */}
+            {aksesModal && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
+                    <div className="w-full max-w-md overflow-hidden bg-white shadow-xl rounded-2xl">
+                        {/* Header */}
+                        <div className="flex items-center justify-between p-5 border-b border-gray-100">
+                            <div className="flex items-center gap-3">
+                                <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#F2E9D3] text-[#A9791F]">
+                                    <SlidersHorizontal size={18} />
+                                </div>
+                                <div>
+                                    <h2 className="text-base font-extrabold text-gray-900">Atur Akses Menu</h2>
+                                    <p className="text-xs text-gray-400">{aksesModal.nama_pegawai} · {aksesModal.posisi_pegawai}</p>
+                                </div>
+                            </div>
+                            <button onClick={() => setAksesModal(null)} className="p-1.5 text-gray-400 hover:bg-gray-100 rounded-lg">
+                                <X size={18} />
+                            </button>
+                        </div>
+
+                        {/* Body: daftar menu */}
+                        <div className="p-5 space-y-2 max-h-[60vh] overflow-y-auto">
+                            <p className="mb-1 text-xs text-gray-500">Pilih tombol menu yang tampil di sidebar pegawai ini.</p>
+                            {specFor(aksesModal).map(item => {
+                                const locked  = !!item.locked;
+                                const checked = locked || aksesSel.includes(item.key);
+                                return (
+                                    <button
+                                        key={item.key}
+                                        type="button"
+                                        disabled={locked}
+                                        onClick={() => !locked && toggleAkses(item.key)}
+                                        className={`flex items-center justify-between w-full gap-3 px-4 py-3 text-left border rounded-xl transition-colors ${
+                                            checked ? 'border-[#A9791F] bg-[#FBF8F0]' : 'border-gray-200 hover:bg-gray-50'
+                                        } ${locked ? 'opacity-70 cursor-not-allowed' : ''}`}
+                                    >
+                                        <span className="text-sm font-bold text-gray-800">{item.label}</span>
+                                        <span className="flex items-center gap-2">
+                                            {locked && (
+                                                <span className="inline-flex items-center gap-1 text-[10px] font-bold text-gray-400">
+                                                    <Lock size={11} /> wajib
+                                                </span>
+                                            )}
+                                            <span className={`flex items-center justify-center w-5 h-5 rounded-md border ${
+                                                checked ? 'bg-[#A9791F] border-[#A9791F] text-white' : 'border-gray-300 bg-white'
+                                            }`}>
+                                                {checked && <Check size={13} strokeWidth={3} />}
+                                            </span>
+                                        </span>
+                                    </button>
+                                );
+                            })}
+                        </div>
+
+                        {/* Footer */}
+                        <div className="flex justify-end gap-3 px-5 py-4 border-t border-gray-100 bg-gray-50">
+                            <button onClick={() => setAksesModal(null)}
+                                className="px-5 py-2 text-sm font-bold text-gray-600 bg-white border border-gray-200 rounded-xl hover:bg-gray-50">
+                                Batal
+                            </button>
+                            <button onClick={saveAkses} disabled={savingAkses}
+                                className="px-5 py-2 text-sm font-bold text-white bg-[#A9791F] rounded-xl hover:bg-[#7A560F] disabled:opacity-60">
+                                {savingAkses ? 'Menyimpan...' : 'Simpan Akses'}
                             </button>
                         </div>
                     </div>

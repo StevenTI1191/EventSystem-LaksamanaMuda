@@ -10,6 +10,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 
 use App\Traits\ChecksPegawaiRole;
+use App\Support\MenuAkses;
 
 class PegawaiController extends Controller
 {
@@ -38,7 +39,39 @@ class PegawaiController extends Controller
         return Inertia::render('Manajemen/Pegawai/Index', [
             'internal' => $internal,
             'eksternal' => $eksternal,
+            // Spesifikasi menu per role untuk editor akses (checkbox sidebar)
+            'aksesSpec' => [
+                'EventMarketing' => MenuAkses::spec('EventMarketing'),
+                'Finance'        => MenuAkses::spec('Finance'),
+            ],
         ]);
+    }
+
+    /**
+     * Simpan akses menu sidebar (visibilitas tombol) untuk seorang pegawai.
+     * Hanya berlaku untuk role yang punya konfigurasi (EventMarketing, Finance).
+     */
+    public function updateAkses(Request $request, $id)
+    {
+        $this->checkManajemen();
+
+        $pegawai = Pegawai::findOrFail($id);
+
+        abort_if(
+            MenuAkses::spec($pegawai->posisi_pegawai) === [],
+            400,
+            'Role ini tidak memiliki pengaturan akses menu.'
+        );
+
+        $data = $request->validate([
+            'akses_menu'   => 'present|array',
+            'akses_menu.*' => 'string',
+        ]);
+
+        $pegawai->akses_menu = MenuAkses::sanitize($pegawai->posisi_pegawai, $data['akses_menu']);
+        $pegawai->save();
+
+        return back()->with('success', 'Akses menu ' . $pegawai->nama_pegawai . ' berhasil diperbarui.');
     }
 
     public function create()

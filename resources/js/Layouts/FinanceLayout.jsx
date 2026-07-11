@@ -21,14 +21,20 @@ export default function FinanceLayout({ children }) {
     const currentPath = window.location.pathname;
 
     const menuItems = [
-        { name: 'Dashboard',        icon: LayoutDashboard, href: route('finance.dashboard'),       active: currentPath === '/finance/dashboard' },
-        { name: 'Kalender',         icon: CalendarDays,    href: route('finance.jadwal.index'),    active: currentPath.includes('/finance/jadwal') },
-        { name: 'Event',            icon: Calendar,        href: route('finance.event.index'),     active: currentPath.includes('/finance/event') },
-        { name: 'Client',           icon: Users,           href: route('finance.client.index'),    active: currentPath.includes('/finance/client') },
-        { name: 'Transaksi',        icon: CreditCard,      href: route('finance.transaksi.index'), active: currentPath.includes('/finance/transaksi') },
-        { name: 'Bukti Pembayaran', icon: Receipt,         href: route('finance.bukti.index'),     active: currentPath.includes('/finance/bukti-pembayaran') },
-        { name: 'Laporan',          icon: FileBarChart,    href: route('finance.laporan.index'),   active: currentPath.includes('/finance/laporan') },
+        { key: 'dashboard', name: 'Dashboard',        icon: LayoutDashboard, href: route('finance.dashboard'),       active: currentPath === '/finance/dashboard' },
+        { key: 'kalender',  name: 'Kalender',         icon: CalendarDays,    href: route('finance.jadwal.index'),    active: currentPath.includes('/finance/jadwal') },
+        { key: 'event',     name: 'Event',            icon: Calendar,        href: route('finance.event.index'),     active: currentPath.includes('/finance/event') },
+        { key: 'client',    name: 'Client',           icon: Users,           href: route('finance.client.index'),    active: currentPath.includes('/finance/client') },
+        { key: 'transaksi', name: 'Transaksi',        icon: CreditCard,      href: route('finance.transaksi.index'), active: currentPath.includes('/finance/transaksi') },
+        { key: 'bukti',     name: 'Bukti Pembayaran', icon: Receipt,         href: route('finance.bukti.index'),     active: currentPath.includes('/finance/bukti-pembayaran') },
+        { key: 'laporan',   name: 'Laporan',          icon: FileBarChart,    href: route('finance.laporan.index'),   active: currentPath.includes('/finance/laporan') },
     ];
+
+    // Filter tombol sidebar sesuai akses efektif pegawai (auth.user.akses_menu).
+    const aksesKeys = user?.akses_menu;
+    const visibleItems = Array.isArray(aksesKeys)
+        ? menuItems.filter((i) => aksesKeys.includes(i.key))
+        : menuItems;
 
     // Fetch notifikasi awal dari DB
     const fetchNotif = async () => {
@@ -124,7 +130,7 @@ export default function FinanceLayout({ children }) {
                 {/* MENU */}
                 <p className={`px-4 mb-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 ${isSidebarOpen ? '' : 'lg:hidden'}`}>Menu</p>
                 <nav className="flex-1 px-3 space-y-1 overflow-y-auto">
-                    {menuItems.map((item) => (
+                    {visibleItems.map((item) => (
                         <Link key={item.name} href={item.href}
                             onClick={() => setMobileOpen(false)}
                             className={`relative flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all ${
