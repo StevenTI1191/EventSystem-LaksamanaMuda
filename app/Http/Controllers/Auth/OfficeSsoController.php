@@ -56,13 +56,18 @@ class OfficeSsoController extends Controller
             return $this->deny('Sesi SSO kedaluwarsa. Silakan buka lagi dari Office.');
         }
 
-        // 4. Petakan role Office -> posisi pegawai
+        // 4. Tentukan posisi pegawai.
+        //    Utamakan `modules` dari token (Level 2); fallback `orole` (token Apps Script lama).
         $uid    = trim((string) ($payload['sub'] ?? ''));
         $name   = trim((string) ($payload['name'] ?? ''));
-        $posisi = $this->posisiFromOrole((string) ($payload['orole'] ?? ''));
+        $modules = $payload['modules'] ?? null;
+
+        $posisi = is_array($modules)
+            ? $this->posisiFromModules($modules)
+            : $this->posisiFromOrole((string) ($payload['orole'] ?? ''));
 
         if (!$posisi) {
-            return $this->deny('Role Office ini tidak punya modul backstage.');
+            return $this->deny('Akun Office ini tidak punya akses modul backstage.');
         }
 
         // 5. Cari pegawai (office_uid -> email bila sub email -> nama), lalu SYNC
@@ -153,6 +158,24 @@ class OfficeSsoController extends Controller
             return Pegawai::whereRaw('LOWER(nama_pegawai) = ?', [mb_strtolower($name)])->first();
         }
 
+        return null;
+    }
+
+    /**
+     * Posisi pegawai dari daftar modul (Level 2). Manajemen = superuser.
+     * Prioritas: '*'/manajemen -> Manajemen, lalu finance, lalu event_marketing.
+     */
+    private function posisiFromModules(array $modules): ?string
+    {
+        if (in_array('*', $modules, true) || in_array('manajemen', $modules, true)) {
+            return 'Manajemen';
+        }
+        if (in_array('finance', $modules, true)) {
+            return 'Finance';
+        }
+        if (in_array('event_marketing', $modules, true)) {
+            return 'EventMarketing';
+        }
         return null;
     }
 

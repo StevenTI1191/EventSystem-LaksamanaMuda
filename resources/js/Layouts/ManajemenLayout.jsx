@@ -11,6 +11,7 @@ import {
     Star,
     CalendarCheck,
     ClipboardList,
+    KeyRound,
     Menu,
     X,
 } from 'lucide-react';
@@ -84,6 +85,12 @@ export default function ManajemenLayout({ children }) {
             icon: Users,
             href: route('manajemen.pegawai.index'),
             active: currentPath === '/manajemen/pegawai' || currentPath.startsWith('/manajemen/pegawai/'),
+        },
+        {
+            name: 'Akses Modul',
+            icon: KeyRound,
+            href: route('manajemen.officeusers.index'),
+            active: currentPath.includes('/manajemen/akses-modul'),
         },
     ];
 

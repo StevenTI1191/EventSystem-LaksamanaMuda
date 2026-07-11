@@ -242,6 +242,12 @@ Route::domain(config('app.backstage_domain'))->group(function () {
         Route::patch('/manajemen/pegawai/{id}/akses', [\App\Http\Controllers\Manajemen\PegawaiController::class, 'updateAkses'])
             ->name('manajemen.pegawai.akses');
 
+        // Roster user Office + atur akses modul (checkbox)
+        Route::get('/manajemen/akses-modul', [\App\Http\Controllers\Manajemen\OfficeUsersController::class, 'index'])
+            ->name('manajemen.officeusers.index');
+        Route::patch('/manajemen/akses-modul/{id}', [\App\Http\Controllers\Manajemen\OfficeUsersController::class, 'update'])
+            ->name('manajemen.officeusers.update');
+
         // --- NOTIFIKASI ---
         Route::get('/notifikasi', [\App\Http\Controllers\EventMarketing\NotifikasiController::class, 'index'])
             ->name('notifikasi.index');

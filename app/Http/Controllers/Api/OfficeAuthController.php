@@ -44,14 +44,14 @@ class OfficeAuthController extends Controller
         }
 
         $role    = (string) $user->role;
-        $modules = $user->modules();
+        $modules = $user->resolvedModules();
 
         return response()->json(['ok' => true, 'user' => [
             'id'       => $user->id,
             'name'     => $user->name,
             'role'     => $role,
             'modules'  => $modules,
-            'ssoToken' => OfficeToken::make($user->id, $user->name, $role),
+            'ssoToken' => OfficeToken::make($user->id, $user->name, $role, $modules),
         ]]);
     }
 
@@ -167,6 +167,6 @@ class OfficeAuthController extends Controller
         );
         if (!$caller) return null;
 
-        return in_array('*', $caller->modules(), true) ? $caller : null;
+        return in_array('*', $caller->resolvedModules(), true) ? $caller : null;
     }
 }

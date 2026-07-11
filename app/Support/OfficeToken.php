@@ -12,7 +12,7 @@ namespace App\Support;
  */
 class OfficeToken
 {
-    public static function make(string $sub, string $name, string $orole, int $ttlSeconds = 86400): string
+    public static function make(string $sub, string $name, string $orole, array $modules = [], int $ttlSeconds = 86400): string
     {
         $secret = (string) config('office.sso_secret');
         if ($secret === '') {
@@ -21,11 +21,12 @@ class OfficeToken
 
         $now = (int) round(microtime(true) * 1000);
         $payload = [
-            'sub'   => $sub,
-            'name'  => $name,
-            'orole' => $orole,
-            'iat'   => $now,
-            'exp'   => $now + $ttlSeconds * 1000,
+            'sub'     => $sub,
+            'name'    => $name,
+            'orole'   => $orole,
+            'modules' => array_values($modules),
+            'iat'     => $now,
+            'exp'     => $now + $ttlSeconds * 1000,
         ];
 
         $b64 = self::b64url(json_encode($payload));
