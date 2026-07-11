@@ -109,7 +109,9 @@ Route::get('/kontrak/{filename}', function ($filename) {
 Route::domain(config('app.backstage_domain'))->group(function () {
 
     // --- 1. ROUTE PUBLIK (LOGIN) ---
-    Route::get('/', [AuthenticatedSessionController::class, 'create'])->name('login');
+    Route::get('/', function () {
+        return redirect('/index.html');
+    })->name('login');
     Route::post('/', [AuthenticatedSessionController::class, 'store']);
 
     // SSO masuk dari Office Portal (token HMAC dari Apps Script office)
