@@ -26,6 +26,7 @@ class Pegawai extends Authenticatable
         'note_pegawai',
         'gaji_pokok', // ← tambahkan ini
         'akses_menu', // daftar key menu sidebar yang boleh tampil (null = default role)
+        'office_uid', // jembatan ke user Office (SSO auto-sync)
     ];
 
     protected $casts = [
