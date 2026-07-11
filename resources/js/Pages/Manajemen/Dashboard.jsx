@@ -25,7 +25,7 @@ const fmtShort = (v) => {
     return `Rp ${d(n, 0)}`;
 };
 
-const PIE_COLORS = ['#FF2D55','#ff6b35','#fbbf24','#34d399','#60a5fa','#a78bfa','#f472b6'];
+const PIE_COLORS = ['#A9791F','#ff6b35','#fbbf24','#34d399','#60a5fa','#a78bfa','#f472b6'];
 
 const CustomTooltip = ({ active, payload, label }) => {
     if (!active || !payload?.length) return null;
@@ -65,19 +65,19 @@ export default function Dashboard({ auth, stats, recentEvents, salesChart, kateg
             <div className="mb-8">
                 <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">Dashboard</h1>
                 <p className="font-medium text-gray-500">
-                    Selamat Datang, <span className="text-[#FF2D55] font-bold">{auth.user.nama_pegawai}</span>!
+                    Selamat Datang, <span className="text-[#A9791F] font-bold">{auth.user.nama_pegawai}</span>!
                     <span className="ml-2 text-xs text-gray-400">{new Date().getFullYear()}</span>
                 </p>
             </div>
 
             {/* ── STAT CARDS ─────────────────────────────────── */}
             <div className="grid grid-cols-2 gap-4 mb-8 md:grid-cols-3 xl:grid-cols-6">
-                <StatCard title="Event Selesai"   value={stats.eventDone}                    icon={<CheckCircle size={22} />}    color="#FF2D55" />
-                <StatCard title="Event Mendatang" value={stats.eventActive}                  icon={<Calendar size={22} />}       color="#FF2D55" />
-                <StatCard title="Total Event"     value={stats.totalEvent}                   icon={<Layout size={22} />}         color="#FF2D55" />
-                <StatCard title="Total Penjualan" value={fmtShort(stats.totalPenjualan)} hint={fmt(stats.totalPenjualan)} icon={<Wallet size={22} />} color="#FF2D55" />
-                <StatCard title="Total Transaksi" value={stats.totalTransaksi}               icon={<ArrowRightLeft size={22} />} color="#FF2D55" />
-                <StatCard title="Total Klien"     value={stats.totalClient}                  icon={<Users size={22} />}          color="#FF2D55" />
+                <StatCard title="Event Selesai"   value={stats.eventDone}                    icon={<CheckCircle size={22} />}    color="#A9791F" />
+                <StatCard title="Event Mendatang" value={stats.eventActive}                  icon={<Calendar size={22} />}       color="#A9791F" />
+                <StatCard title="Total Event"     value={stats.totalEvent}                   icon={<Layout size={22} />}         color="#A9791F" />
+                <StatCard title="Total Penjualan" value={fmtShort(stats.totalPenjualan)} hint={fmt(stats.totalPenjualan)} icon={<Wallet size={22} />} color="#A9791F" />
+                <StatCard title="Total Transaksi" value={stats.totalTransaksi}               icon={<ArrowRightLeft size={22} />} color="#A9791F" />
+                <StatCard title="Total Klien"     value={stats.totalClient}                  icon={<Users size={22} />}          color="#A9791F" />
             </div>
 
             {/* ── ROW 1: Sales Chart + Event Status Donut ────── */}
@@ -90,7 +90,7 @@ export default function Dashboard({ auth, stats, recentEvents, salesChart, kateg
                             <h3 className="text-base font-extrabold text-gray-900">Total Penjualan per Bulan</h3>
                             <p className="text-xs text-gray-400">{new Date().getFullYear()}</p>
                         </div>
-                        <span className="text-[10px] font-bold text-white bg-[#FF2D55] px-3 py-1 rounded-full uppercase tracking-widest">
+                        <span className="text-[10px] font-bold text-white bg-[#A9791F] px-3 py-1 rounded-full uppercase tracking-widest">
                             Realtime
                         </span>
                     </div>
@@ -100,7 +100,7 @@ export default function Dashboard({ auth, stats, recentEvents, salesChart, kateg
                             <XAxis dataKey="bulan" tick={{ fontSize: 11, fill: '#9ca3af' }} axisLine={false} tickLine={false} />
                             <YAxis tickFormatter={fmtShort} tick={{ fontSize: 10, fill: '#9ca3af' }} axisLine={false} tickLine={false} width={65} />
                             <Tooltip content={<CustomTooltip />} />
-                            <Bar dataKey="total" name="Penjualan" fill="#FF2D55" radius={[6,6,0,0]} />
+                            <Bar dataKey="total" name="Penjualan" fill="#A9791F" radius={[6,6,0,0]} />
                         </BarChart>
                     </ResponsiveContainer>
                 </div>
@@ -177,7 +177,7 @@ export default function Dashboard({ auth, stats, recentEvents, salesChart, kateg
                 {/* Trend client baru */}
                 <div className="p-6 bg-white border border-gray-100 shadow-sm rounded-2xl lg:col-span-2">
                     <div className="flex items-center gap-2 mb-1">
-                        <TrendingUp size={16} className="text-[#FF2D55]" />
+                        <TrendingUp size={16} className="text-[#A9791F]" />
                         <h3 className="text-base font-extrabold text-gray-900">Trend Client Baru</h3>
                     </div>
                     <p className="mb-5 text-xs text-gray-400">Pendaftaran client per bulan — {new Date().getFullYear()}</p>
@@ -188,8 +188,8 @@ export default function Dashboard({ auth, stats, recentEvents, salesChart, kateg
                             <YAxis allowDecimals={false} tick={{ fontSize: 11, fill: '#9ca3af' }} axisLine={false} tickLine={false} width={30} />
                             <Tooltip content={<CustomTooltip />} />
                             <Line type="monotone" dataKey="total" name="Client Baru"
-                                stroke="#FF2D55" strokeWidth={2.5}
-                                dot={{ fill: '#FF2D55', r: 4 }}
+                                stroke="#A9791F" strokeWidth={2.5}
+                                dot={{ fill: '#A9791F', r: 4 }}
                                 activeDot={{ r: 6 }} />
                         </LineChart>
                     </ResponsiveContainer>
@@ -219,10 +219,10 @@ export default function Dashboard({ auth, stats, recentEvents, salesChart, kateg
                                     <div className="flex-1 min-w-0">
                                         <div className="flex items-center justify-between mb-1">
                                             <p className="text-xs font-bold text-gray-800 truncate">{p.nama}</p>
-                                            <span className="text-xs font-black text-[#FF2D55] ml-2 flex-shrink-0">{p.total}</span>
+                                            <span className="text-xs font-black text-[#A9791F] ml-2 flex-shrink-0">{p.total}</span>
                                         </div>
                                         <div className="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                                            <div className="h-1.5 bg-[#FF2D55] rounded-full transition-all"
+                                            <div className="h-1.5 bg-[#A9791F] rounded-full transition-all"
                                                 style={{ width: `${(p.total / maxTotal) * 100}%` }} />
                                         </div>
                                     </div>
@@ -248,7 +248,7 @@ export default function Dashboard({ auth, stats, recentEvents, salesChart, kateg
                                             className="object-cover w-full h-full" />
                                     ) : (
                                         <div className="flex items-center justify-center w-full h-full bg-pink-50">
-                                            <span className="text-xs font-black text-[#FF2D55]">
+                                            <span className="text-xs font-black text-[#A9791F]">
                                                 {event.nama_event?.substring(0, 2).toUpperCase()}
                                             </span>
                                         </div>

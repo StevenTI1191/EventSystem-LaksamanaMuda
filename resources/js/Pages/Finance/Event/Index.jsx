@@ -68,7 +68,7 @@ export default function FinanceEventIndex({ auth, events, filters, clients, pega
                                 <X size={18} className="text-gray-600" />
                             </button>
                             <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-1.5 rounded-full shadow-sm">
-                                <span className="text-[10px] font-black uppercase tracking-wider text-[#FF2D55]">
+                                <span className="text-[10px] font-black uppercase tracking-wider text-[#A9791F]">
                                     ● {selectedEvent.status_event || 'Upcoming'}
                                 </span>
                             </div>
@@ -76,7 +76,7 @@ export default function FinanceEventIndex({ auth, events, filters, clients, pega
                         <div className="p-8">
                             <h2 className="mb-1 text-2xl font-extrabold text-gray-900">{selectedEvent.nama_event}</h2>
                             {selectedEvent.kategori_event && (
-                                <span className="inline-block mb-3 px-3 py-1 bg-pink-50 text-[#FF2D55] text-[10px] font-black uppercase tracking-wider rounded-full">
+                                <span className="inline-block mb-3 px-3 py-1 bg-pink-50 text-[#A9791F] text-[10px] font-black uppercase tracking-wider rounded-full">
                                     {selectedEvent.kategori_event}
                                 </span>
                             )}
@@ -191,18 +191,18 @@ export default function FinanceEventIndex({ auth, events, filters, clients, pega
                                     className="w-full h-56 object-cover rounded-[2rem]"
                                 />
                                 <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-1.5 rounded-full shadow-sm">
-                                    <span className={`text-[10px] font-black uppercase tracking-wider ${event.status_event === 'Upcoming' ? 'text-orange-500' : 'text-[#FF2D55]'}`}>
+                                    <span className={`text-[10px] font-black uppercase tracking-wider ${event.status_event === 'Upcoming' ? 'text-orange-500' : 'text-[#A9791F]'}`}>
                                         ● {event.status_event || 'Upcoming'}
                                     </span>
                                 </div>
                             </div>
                         </div>
                         <div className="px-8 pb-8">
-                            <h3 className="mb-1 text-xl font-bold text-gray-900 transition-colors group-hover:text-[#FF2D55] line-clamp-1">
+                            <h3 className="mb-1 text-xl font-bold text-gray-900 transition-colors group-hover:text-[#A9791F] line-clamp-1">
                                 {event.nama_event}
                             </h3>
                             {event.kategori_event && (
-                                <span className="inline-block mb-3 px-3 py-1 bg-pink-50 text-[#FF2D55] text-[10px] font-black uppercase tracking-wider rounded-full">
+                                <span className="inline-block mb-3 px-3 py-1 bg-pink-50 text-[#A9791F] text-[10px] font-black uppercase tracking-wider rounded-full">
                                     {event.kategori_event}
                                 </span>
                             )}
@@ -224,7 +224,7 @@ export default function FinanceEventIndex({ auth, events, filters, clients, pega
                             </div>
                             <button
                                 onClick={() => setSelectedEvent(event)}
-                                className="w-full py-3.5 bg-pink-50 text-[#FF2D55] font-bold rounded-2xl hover:bg-pink-100 transition-colors text-sm"
+                                className="w-full py-3.5 bg-pink-50 text-[#A9791F] font-bold rounded-2xl hover:bg-pink-100 transition-colors text-sm"
                             >
                                 Lihat Detail
                             </button>

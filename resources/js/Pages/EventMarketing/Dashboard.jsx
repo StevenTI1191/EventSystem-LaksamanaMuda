@@ -78,7 +78,7 @@ export default function Dashboard({ auth, stats, aptStats, recentEvents, pending
                 <div>
                     <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">Dashboard</h1>
                     <p className="font-medium text-gray-500">
-                        Selamat Datang, <span className="text-[#FF2D55] font-bold">{user.nama_pegawai}</span>!
+                        Selamat Datang, <span className="text-[#A9791F] font-bold">{user.nama_pegawai}</span>!
                     </p>
                 </div>
 
@@ -90,7 +90,7 @@ export default function Dashboard({ auth, stats, aptStats, recentEvents, pending
                     >
                         <Bell size={20} className="text-gray-600" />
                         {unread > 0 && (
-                            <span className="absolute -top-1 -right-1 flex items-center justify-center w-5 h-5 text-xs font-black text-white bg-[#FF2D55] rounded-full animate-pulse">
+                            <span className="absolute -top-1 -right-1 flex items-center justify-center w-5 h-5 text-xs font-black text-white bg-[#A9791F] rounded-full animate-pulse">
                                 {unread > 99 ? '99+' : unread}
                             </span>
                         )}
@@ -102,7 +102,7 @@ export default function Dashboard({ auth, stats, aptStats, recentEvents, pending
                                 <div className="flex items-center gap-2">
                                     <p className="text-sm font-extrabold text-gray-800">Notifikasi</p>
                                     {unread > 0 && (
-                                        <span className="px-1.5 py-0.5 text-xs font-black text-white bg-[#FF2D55] rounded-full">
+                                        <span className="px-1.5 py-0.5 text-xs font-black text-white bg-[#A9791F] rounded-full">
                                             {unread}
                                         </span>
                                     )}
@@ -111,7 +111,7 @@ export default function Dashboard({ auth, stats, aptStats, recentEvents, pending
                                     {unread > 0 && (
                                         <button
                                             onClick={markAllRead}
-                                            className="text-xs font-bold text-[#FF2D55] hover:underline"
+                                            className="text-xs font-bold text-[#A9791F] hover:underline"
                                         >
                                             Tandai semua dibaca
                                         </button>
@@ -126,7 +126,7 @@ export default function Dashboard({ auth, stats, aptStats, recentEvents, pending
                                 {notifications.length > 0 ? notifications.map(notif => (
                                     <div key={notif.id} className={'flex items-start gap-3 px-4 py-3 transition-colors ' + (!notif.is_read ? 'bg-red-50/60' : 'hover:bg-gray-50')}>
                                         <div className={'flex items-center justify-center w-9 h-9 flex-shrink-0 rounded-full mt-0.5 ' + (notif.tipe === 'appointment' ? 'bg-red-100' : 'bg-orange-100')}>
-                                            <Calendar size={15} className={'text-[#FF2D55]'} />
+                                            <Calendar size={15} className={'text-[#A9791F]'} />
                                         </div>
                                         <div className="flex-1 min-w-0">
                                             <p className="text-xs font-extrabold text-gray-800">{notif.judul}</p>
@@ -163,7 +163,7 @@ export default function Dashboard({ auth, stats, aptStats, recentEvents, pending
                 <div className="p-6 bg-white border border-gray-100 shadow-sm rounded-2xl">
                     <div className="flex items-center gap-4">
                         <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-red-50">
-                            <Layout size={22} className="text-[#FF2D55]" />
+                            <Layout size={22} className="text-[#A9791F]" />
                         </div>
                         <div>
                             <p className="text-2xl font-black text-gray-900">{stats.totalEvent}</p>
@@ -200,7 +200,7 @@ export default function Dashboard({ auth, stats, aptStats, recentEvents, pending
                 <div className="mb-8">
                     <div className="flex items-center justify-between mb-3">
                         <h2 className="text-base font-extrabold text-gray-800">Statistik Appointment</h2>
-                        <Link href={route('em.appointment.index')} className="text-xs font-bold text-[#FF2D55] hover:underline">
+                        <Link href={route('em.appointment.index')} className="text-xs font-bold text-[#A9791F] hover:underline">
                             Lihat Semua →
                         </Link>
                     </div>
@@ -232,9 +232,9 @@ export default function Dashboard({ auth, stats, aptStats, recentEvents, pending
                         <Link href={route('em.appointment.index') + '?status=Pending'}
                             className="p-4 bg-white border border-red-100 shadow-sm rounded-2xl flex items-center gap-3 hover:border-red-300 transition-colors">
                             <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-red-50 flex-shrink-0 relative">
-                                <Clock size={18} className="text-[#FF2D55]" />
+                                <Clock size={18} className="text-[#A9791F]" />
                                 {aptStats.aptPending > 0 && (
-                                    <span className="absolute -top-1 -right-1 w-4 h-4 text-[9px] font-black text-white bg-[#FF2D55] rounded-full flex items-center justify-center animate-pulse">
+                                    <span className="absolute -top-1 -right-1 w-4 h-4 text-[9px] font-black text-white bg-[#A9791F] rounded-full flex items-center justify-center animate-pulse">
                                         {aptStats.aptPending > 9 ? '9+' : aptStats.aptPending}
                                     </span>
                                 )}
@@ -303,13 +303,13 @@ export default function Dashboard({ auth, stats, aptStats, recentEvents, pending
                     <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center gap-2">
                             <h3 className="text-lg font-extrabold text-gray-900">Appointment Menunggu Konfirmasi</h3>
-                            <span className="flex items-center justify-center px-2 py-0.5 text-xs font-black text-white bg-[#FF2D55] rounded-full animate-pulse">
+                            <span className="flex items-center justify-center px-2 py-0.5 text-xs font-black text-white bg-[#A9791F] rounded-full animate-pulse">
                                 {pendingAppointments.length}
                             </span>
                         </div>
                         <Link
                             href={route('em.appointment.index') + '?status=Pending'}
-                            className="text-xs font-bold text-[#FF2D55] hover:underline"
+                            className="text-xs font-bold text-[#A9791F] hover:underline"
                         >
                             Lihat Semua →
                         </Link>
@@ -325,7 +325,7 @@ export default function Dashboard({ auth, stats, aptStats, recentEvents, pending
                                 </div>
                                 <Link
                                     href={route('em.appointment.show', apt.id)}
-                                    className="flex-shrink-0 px-3 py-1.5 text-xs font-bold text-white bg-[#FF2D55] rounded-lg hover:bg-[#e02249] transition-colors"
+                                    className="flex-shrink-0 px-3 py-1.5 text-xs font-bold text-white bg-[#A9791F] rounded-lg hover:bg-[#7A560F] transition-colors"
                                 >
                                     Konfirmasi
                                 </Link>
@@ -349,7 +349,7 @@ export default function Dashboard({ auth, stats, aptStats, recentEvents, pending
                                     <img src={`/${event.poster_event}`} alt={event.nama_event}
                                         className="flex-shrink-0 object-cover w-10 h-10 rounded-lg" />
                                 ) : (
-                                    <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-[#FF2D55]/20 to-gray-200 text-[10px] font-black text-gray-500">
+                                    <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-[#A9791F]/20 to-gray-200 text-[10px] font-black text-gray-500">
                                         {event.nama_event.substring(0, 2).toUpperCase()}
                                     </div>
                                 )}

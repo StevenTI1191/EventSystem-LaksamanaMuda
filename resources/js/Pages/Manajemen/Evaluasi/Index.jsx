@@ -44,7 +44,7 @@ export default function EvaluasiIndex({ auth, pegawais, events, filters }) {
                     {pegawais.map(pegawai => (
                         <div key={pegawai.id_pegawai} className="p-5 bg-white border border-gray-100 shadow-sm rounded-2xl">
                             <div className="flex flex-col items-center mb-4">
-                                <div className="flex items-center justify-center w-16 h-16 mb-3 text-xl font-black rounded-full bg-red-50 text-[#FF2D55]">
+                                <div className="flex items-center justify-center w-16 h-16 mb-3 text-xl font-black rounded-full bg-red-50 text-[#A9791F]">
                                     {pegawai.nama_pegawai.substring(0, 2).toUpperCase()}
                                 </div>
                                 <p className="text-sm font-bold text-center text-gray-800">{pegawai.nama_pegawai}</p>
@@ -62,7 +62,7 @@ export default function EvaluasiIndex({ auth, pegawais, events, filters }) {
                             </div>
                             <Link
                                 href={route('manajemen.evaluasi.pegawai', pegawai.id_pegawai)}
-                                className="block w-full py-1.5 text-xs font-bold text-center text-white bg-[#FF2D55] rounded-lg hover:bg-[#e02249] transition-colors"
+                                className="block w-full py-1.5 text-xs font-bold text-center text-white bg-[#A9791F] rounded-lg hover:bg-[#7A560F] transition-colors"
                             >
                                 View
                             </Link>
@@ -82,7 +82,7 @@ export default function EvaluasiIndex({ auth, pegawais, events, filters }) {
                         <select
                             value={status}
                             onChange={e => handleFilter('status', e.target.value)}
-                            className="px-3 py-2 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:ring-[#FF2D55] focus:border-[#FF2D55]"
+                            className="px-3 py-2 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:ring-[#A9791F] focus:border-[#A9791F]"
                         >
                             <option value="">Semua</option>
                             <option value="Upcoming">Upcoming</option>
@@ -97,7 +97,7 @@ export default function EvaluasiIndex({ auth, pegawais, events, filters }) {
                                 placeholder="Search"
                                 value={search}
                                 onChange={e => handleFilter('search', e.target.value)}
-                                className="w-full pl-4 pr-10 py-2 border border-gray-200 rounded-xl text-sm focus:ring-[#FF2D55] focus:border-[#FF2D55] bg-gray-50"
+                                className="w-full pl-4 pr-10 py-2 border border-gray-200 rounded-xl text-sm focus:ring-[#A9791F] focus:border-[#A9791F] bg-gray-50"
                             />
                             <Search size={14} className="absolute right-3 top-2.5 text-gray-400" />
                         </div>
@@ -143,7 +143,7 @@ export default function EvaluasiIndex({ auth, pegawais, events, filters }) {
                                 disabled={!link.url}
                                 className={'px-3 py-1.5 text-xs font-bold rounded-lg transition-colors disabled:opacity-40 ' + (
                                     link.active
-                                        ? 'bg-[#FF2D55] text-white'
+                                        ? 'bg-[#A9791F] text-white'
                                         : 'bg-white border border-gray-200 text-gray-500 hover:bg-gray-50'
                                 )}
                             >
@@ -176,7 +176,7 @@ function PosterImage({ poster, nama }) {
 
     return (
         <div className="flex items-center justify-center w-full h-36 bg-gradient-to-br from-red-50 to-orange-50">
-            <span className="text-2xl font-black text-[#FF2D55]/30">
+            <span className="text-2xl font-black text-[#A9791F]/30">
                 {nama.substring(0, 2).toUpperCase()}
             </span>
         </div>

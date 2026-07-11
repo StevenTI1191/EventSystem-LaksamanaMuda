@@ -48,7 +48,7 @@ export default function EMClientIndex({ clients, filters }) {
                         placeholder="Search client..."
                         value={searchTerm}
                         onChange={e => handleSearch(e.target.value)}
-                        className="w-full pl-4 pr-10 py-2 border border-gray-200 rounded-xl text-sm focus:ring-[#FF2D55] focus:border-[#FF2D55] bg-gray-50"
+                        className="w-full pl-4 pr-10 py-2 border border-gray-200 rounded-xl text-sm focus:ring-[#A9791F] focus:border-[#A9791F] bg-gray-50"
                     />
                     <Search size={14} className="absolute right-3 top-2.5 text-gray-400" />
                 </div>
@@ -60,7 +60,7 @@ export default function EMClientIndex({ clients, filters }) {
                     <h2 className="text-base font-extrabold text-gray-800">List Client</h2>
                     <Link
                         href={route('em.client.create')}
-                        className="flex items-center gap-2 px-5 py-2 bg-[#FF2D55] text-white text-sm font-bold rounded-xl hover:bg-[#e02249] transition-colors shadow-md shadow-[#FF2D55]/20"
+                        className="flex items-center gap-2 px-5 py-2 bg-[#A9791F] text-white text-sm font-bold rounded-xl hover:bg-[#7A560F] transition-colors shadow-md shadow-[#A9791F]/20"
                     >
                         <Plus size={16} strokeWidth={3} />
                         Add Client
@@ -68,7 +68,7 @@ export default function EMClientIndex({ clients, filters }) {
                 </div>
                 <table className="w-full">
                     <thead>
-                        <tr className="bg-[#FF2D55]">
+                        <tr className="bg-[#A9791F]">
                             <th className="w-12 px-6 py-3 text-xs font-bold tracking-wider text-left text-white uppercase">No</th>
                             <th className="px-6 py-3 text-xs font-bold tracking-wider text-left text-white uppercase">Nama Client</th>
                             <th className="px-6 py-3 text-xs font-bold tracking-wider text-left text-white uppercase">Perusahaan</th>

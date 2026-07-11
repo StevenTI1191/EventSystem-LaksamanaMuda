@@ -16,7 +16,7 @@ export default function Edit() {
 
     const InfoRow = ({ icon, label, value }) => (
         <div className="flex items-center gap-4 py-3 border-b border-gray-50 last:border-0">
-            <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-pink-50 text-[#FF2D55] flex-shrink-0">
+            <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-pink-50 text-[#A9791F] flex-shrink-0">
                 {icon}
             </div>
             <div className="flex-1 min-w-0">
@@ -34,11 +34,11 @@ export default function Edit() {
 
                 {/* Avatar + Nama */}
                 <div className="flex flex-col items-center p-8 bg-white border border-gray-100 shadow-sm rounded-2xl">
-                    <div className="flex items-center justify-center w-20 h-20 mb-4 text-2xl font-black rounded-full bg-pink-50 text-[#FF2D55]">
+                    <div className="flex items-center justify-center w-20 h-20 mb-4 text-2xl font-black rounded-full bg-pink-50 text-[#A9791F]">
                         {user?.nama_pegawai?.substring(0, 2).toUpperCase() ?? '??'}
                     </div>
                     <p className="text-xl font-extrabold text-gray-900">{user?.nama_pegawai}</p>
-                    <span className="mt-1 px-3 py-1 text-xs font-bold text-[#FF2D55] bg-pink-50 rounded-full">
+                    <span className="mt-1 px-3 py-1 text-xs font-bold text-[#A9791F] bg-pink-50 rounded-full">
                         {user?.posisi_pegawai}
                     </span>
                 </div>

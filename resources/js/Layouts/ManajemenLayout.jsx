@@ -149,7 +149,7 @@ export default function ManajemenLayout({ children }) {
                             onClick={() => setMobileOpen(false)}
                             className={`flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all ${
                                 item.active
-                                    ? 'bg-[#FF2D55] text-white shadow-lg shadow-[#FF2D55]/30'
+                                    ? 'bg-[#A9791F] text-white shadow-lg shadow-[#A9791F]/30'
                                     : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'
                             }`}
                         >

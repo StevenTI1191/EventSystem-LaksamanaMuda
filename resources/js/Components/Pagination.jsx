@@ -39,7 +39,7 @@ export default function Pagination({ meta }) {
                         <Link key={i} href={link.url}
                             className={`flex items-center justify-center w-8 h-8 text-xs font-semibold rounded-lg border transition-colors ${
                                 link.active
-                                    ? 'bg-[#FF2D55] text-white border-[#FF2D55] shadow-sm shadow-[#FF2D55]/30'
+                                    ? 'bg-[#A9791F] text-white border-[#A9791F] shadow-sm shadow-[#A9791F]/30'
                                     : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50'
                             }`}>
                             {link.label}

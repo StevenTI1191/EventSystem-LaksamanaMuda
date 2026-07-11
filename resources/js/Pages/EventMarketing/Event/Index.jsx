@@ -105,7 +105,7 @@ export default function Index({ auth, events, filters, clients, pegawais }) {
                                 <X size={18} className="text-gray-600" />
                             </button>
                             <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-1.5 rounded-full shadow-sm">
-                                <span className="text-[10px] font-black uppercase tracking-wider text-[#FF2D55]">
+                                <span className="text-[10px] font-black uppercase tracking-wider text-[#A9791F]">
                                     ● {selectedEvent.status_event || 'Upcoming'}
                                 </span>
                             </div>
@@ -114,7 +114,7 @@ export default function Index({ auth, events, filters, clients, pegawais }) {
                         <div className="p-8">
                             <h2 className="mb-1 text-2xl font-extrabold text-gray-900">{selectedEvent.nama_event}</h2>
                             {selectedEvent.kategori_event && (
-                                <span className="inline-block mb-3 px-3 py-1 bg-pink-50 text-[#FF2D55] text-[10px] font-black uppercase tracking-wider rounded-full">
+                                <span className="inline-block mb-3 px-3 py-1 bg-pink-50 text-[#A9791F] text-[10px] font-black uppercase tracking-wider rounded-full">
                                     {selectedEvent.kategori_event}
                                 </span>
                             )}
@@ -126,7 +126,7 @@ export default function Index({ auth, events, filters, clients, pegawais }) {
                             <div className="flex gap-2 p-1 mb-6 bg-gray-100 rounded-2xl w-fit">
                                 <button
                                     onClick={() => handleTabSwitch('detail')}
-                                    className={`px-6 py-2 rounded-xl text-sm font-bold transition-all ${modalTab === 'detail' ? 'bg-white text-[#FF2D55] shadow-sm' : 'text-gray-500'}`}
+                                    className={`px-6 py-2 rounded-xl text-sm font-bold transition-all ${modalTab === 'detail' ? 'bg-white text-[#A9791F] shadow-sm' : 'text-gray-500'}`}
                                 >
                                     Detail
                                 </button>
@@ -328,7 +328,7 @@ export default function Index({ auth, events, filters, clients, pegawais }) {
                                     className="w-full h-56 object-cover rounded-[2rem]"
                                 />
                                 <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-1.5 rounded-full shadow-sm">
-                                    <span className={`text-[10px] font-black uppercase tracking-wider ${event.status_event === 'Upcoming' ? 'text-orange-500' : 'text-[#FF2D55]'}`}>
+                                    <span className={`text-[10px] font-black uppercase tracking-wider ${event.status_event === 'Upcoming' ? 'text-orange-500' : 'text-[#A9791F]'}`}>
                                         ● {event.status_event || 'Upcoming'}
                                     </span>
                                 </div>
@@ -350,11 +350,11 @@ export default function Index({ auth, events, filters, clients, pegawais }) {
                         </div>
 
                         <div className="px-8 pb-8">
-                            <h3 className="mb-1 text-xl font-bold text-gray-900 transition-colors group-hover:text-[#FF2D55] line-clamp-1">
+                            <h3 className="mb-1 text-xl font-bold text-gray-900 transition-colors group-hover:text-[#A9791F] line-clamp-1">
                                 {event.nama_event}
                             </h3>
                             {event.kategori_event && (
-                                <span className="inline-block mb-3 px-3 py-1 bg-pink-50 text-[#FF2D55] text-[10px] font-black uppercase tracking-wider rounded-full">
+                                <span className="inline-block mb-3 px-3 py-1 bg-pink-50 text-[#A9791F] text-[10px] font-black uppercase tracking-wider rounded-full">
                                     {event.kategori_event}
                                 </span>
                             )}
@@ -378,7 +378,7 @@ export default function Index({ auth, events, filters, clients, pegawais }) {
                             <div className="flex gap-3">
                                 <button
                                     onClick={() => handleOpenModal(event, 'detail')}
-                                    className="flex-1 py-3.5 bg-pink-50 text-[#FF2D55] font-bold rounded-2xl hover:bg-pink-100 transition-colors text-sm"
+                                    className="flex-1 py-3.5 bg-pink-50 text-[#A9791F] font-bold rounded-2xl hover:bg-pink-100 transition-colors text-sm"
                                 >
                                     Detail
                                 </button>
@@ -402,7 +402,7 @@ export default function Index({ auth, events, filters, clients, pegawais }) {
             {/* FLOATING ACTION BUTTON */}
             <Link
                 href={route('em.event.create')}
-                className="fixed bottom-10 right-10 bg-[#FF2D55] text-white px-8 py-4 rounded-full shadow-2xl shadow-[#FF2D55]/40 hover:scale-105 active:scale-95 transition-all flex items-center gap-3 z-50"
+                className="fixed bottom-10 right-10 bg-[#A9791F] text-white px-8 py-4 rounded-full shadow-2xl shadow-[#A9791F]/40 hover:scale-105 active:scale-95 transition-all flex items-center gap-3 z-50"
             >
                 <Plus size={24} strokeWidth={3} />
                 <span className="text-lg font-bold">Tambah Event</span>

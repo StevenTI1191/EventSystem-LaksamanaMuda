@@ -209,7 +209,7 @@ export default function TransaksiIndex({ auth, events, filters = {} }) {
                                     Batal
                                 </button>
                                 <button type="submit" disabled={formBayar.processing}
-                                    className="flex-1 py-3 bg-[#FF2D55] text-white rounded-xl text-sm font-bold hover:bg-red-600">
+                                    className="flex-1 py-3 bg-[#A9791F] text-white rounded-xl text-sm font-bold hover:bg-red-600">
                                     {formBayar.processing ? 'Menyimpan...' : 'Simpan'}
                                 </button>
                             </div>
@@ -284,7 +284,7 @@ export default function TransaksiIndex({ auth, events, filters = {} }) {
                                     Batal
                                 </button>
                                 <button type="submit" disabled={formItem.processing}
-                                    className="flex-1 py-3 bg-[#FF2D55] text-white rounded-xl text-sm font-bold hover:bg-red-600">
+                                    className="flex-1 py-3 bg-[#A9791F] text-white rounded-xl text-sm font-bold hover:bg-red-600">
                                     {formItem.processing ? 'Menyimpan...' : 'Simpan'}
                                 </button>
                             </div>
@@ -308,7 +308,7 @@ export default function TransaksiIndex({ auth, events, filters = {} }) {
                         <input type="text" placeholder="Nama event atau client..."
                             value={filterData.search}
                             onChange={e => applyFilter({ ...filterData, search: e.target.value })}
-                            className="pl-3 pr-4 py-2 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:border-[#FF2D55] focus:outline-none min-w-[200px]" />
+                            className="pl-3 pr-4 py-2 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:border-[#A9791F] focus:outline-none min-w-[200px]" />
                     </div>
 
                     {/* Bulan */}
@@ -316,7 +316,7 @@ export default function TransaksiIndex({ auth, events, filters = {} }) {
                         <label className="text-xs font-bold text-gray-500">Bulan</label>
                         <select value={filterData.bulan}
                             onChange={e => applyFilter({ ...filterData, bulan: e.target.value })}
-                            className="pl-3 pr-8 py-2 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:border-[#FF2D55] focus:outline-none min-w-[130px]">
+                            className="pl-3 pr-8 py-2 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:border-[#A9791F] focus:outline-none min-w-[130px]">
                             <option value="">Semua Bulan</option>
                             {bulanList.map(b => <option key={b.value} value={b.value}>{b.label}</option>)}
                         </select>
@@ -327,7 +327,7 @@ export default function TransaksiIndex({ auth, events, filters = {} }) {
                         <label className="text-xs font-bold text-gray-500">Tahun</label>
                         <select value={filterData.tahun}
                             onChange={e => applyFilter({ ...filterData, tahun: e.target.value })}
-                            className="pl-3 pr-8 py-2 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:border-[#FF2D55] focus:outline-none min-w-[130px]">
+                            className="pl-3 pr-8 py-2 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:border-[#A9791F] focus:outline-none min-w-[130px]">
                             <option value="">Semua Tahun</option>
                             {tahunList.map(t => <option key={t} value={t}>{t}</option>)}
                         </select>
@@ -338,7 +338,7 @@ export default function TransaksiIndex({ auth, events, filters = {} }) {
                         <label className="text-xs font-bold text-gray-500">Status</label>
                         <select value={filterData.status}
                             onChange={e => applyFilter({ ...filterData, status: e.target.value })}
-                            className="pl-3 pr-8 py-2 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:border-[#FF2D55] focus:outline-none min-w-[130px]">
+                            className="pl-3 pr-8 py-2 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:border-[#A9791F] focus:outline-none min-w-[130px]">
                             <option value="">Semua Status</option>
                             <option value="Lunas">✅ Lunas</option>
                             <option value="Belum Lunas">⏳ Belum Lunas</option>
@@ -357,8 +357,8 @@ export default function TransaksiIndex({ auth, events, filters = {} }) {
                                 <button key={s.key} onClick={() => toggleSort(s.key)}
                                     className={`px-3 py-2 text-xs font-bold rounded-xl border transition-all ${
                                         filterData.sort === s.key
-                                            ? 'bg-[#FF2D55] text-white border-[#FF2D55]'
-                                            : 'bg-white text-gray-500 border-gray-200 hover:border-[#FF2D55]/40'
+                                            ? 'bg-[#A9791F] text-white border-[#A9791F]'
+                                            : 'bg-white text-gray-500 border-gray-200 hover:border-[#A9791F]/40'
                                     }`}>
                                     {s.label}
                                     {filterData.sort === s.key && (
@@ -382,10 +382,10 @@ export default function TransaksiIndex({ auth, events, filters = {} }) {
                 {(filterData.bulan || filterData.tahun || filterData.status || filterData.search) && (
                     <div className="flex flex-wrap gap-2 mt-3 pt-3 border-t border-gray-100">
                         <span className="text-xs text-gray-400 font-medium">Filter aktif:</span>
-                        {filterData.search && <span className="px-2.5 py-1 text-xs font-bold bg-pink-50 text-[#FF2D55] rounded-full">"{filterData.search}"</span>}
-                        {filterData.bulan  && <span className="px-2.5 py-1 text-xs font-bold bg-pink-50 text-[#FF2D55] rounded-full">{bulanList.find(b => b.value === filterData.bulan)?.label}</span>}
-                        {filterData.tahun  && <span className="px-2.5 py-1 text-xs font-bold bg-pink-50 text-[#FF2D55] rounded-full">{filterData.tahun}</span>}
-                        {filterData.status && <span className="px-2.5 py-1 text-xs font-bold bg-pink-50 text-[#FF2D55] rounded-full">{filterData.status}</span>}
+                        {filterData.search && <span className="px-2.5 py-1 text-xs font-bold bg-pink-50 text-[#A9791F] rounded-full">"{filterData.search}"</span>}
+                        {filterData.bulan  && <span className="px-2.5 py-1 text-xs font-bold bg-pink-50 text-[#A9791F] rounded-full">{bulanList.find(b => b.value === filterData.bulan)?.label}</span>}
+                        {filterData.tahun  && <span className="px-2.5 py-1 text-xs font-bold bg-pink-50 text-[#A9791F] rounded-full">{filterData.tahun}</span>}
+                        {filterData.status && <span className="px-2.5 py-1 text-xs font-bold bg-pink-50 text-[#A9791F] rounded-full">{filterData.status}</span>}
                     </div>
                 )}
             </div>
@@ -436,7 +436,7 @@ export default function TransaksiIndex({ auth, events, filters = {} }) {
                         Batal
                     </button>
                     <button type="submit" disabled={formEditBayar.processing}
-                        className="flex-1 py-3 bg-[#FF2D55] text-white rounded-xl text-sm font-bold hover:bg-red-600">
+                        className="flex-1 py-3 bg-[#A9791F] text-white rounded-xl text-sm font-bold hover:bg-red-600">
                         {formEditBayar.processing ? 'Menyimpan...' : 'Simpan'}
                     </button>
                 </div>
@@ -524,7 +524,7 @@ export default function TransaksiIndex({ auth, events, filters = {} }) {
             <div className="overflow-hidden bg-white border border-gray-100 shadow-sm rounded-2xl">
                 <table className="w-full">
                     <thead>
-                        <tr className="bg-[#FF2D55]">
+                        <tr className="bg-[#A9791F]">
                             <th className="w-12 px-6 py-3 text-xs font-bold tracking-wider text-left text-white uppercase">No</th>
                             <th className="px-6 py-3 text-xs font-bold tracking-wider text-left text-white uppercase">Event</th>
                             <th className="px-6 py-3 text-xs font-bold tracking-wider text-left text-white uppercase">Client</th>
@@ -569,7 +569,7 @@ export default function TransaksiIndex({ auth, events, filters = {} }) {
                                                         <div className="h-2 rounded-full transition-all duration-500"
                                                             style={{
                                                                 width: `${pct}%`,
-                                                                background: pct >= 100 ? '#16a34a' : pct >= 50 ? '#FF2D55' : '#f97316'
+                                                                background: pct >= 100 ? '#16a34a' : pct >= 50 ? '#A9791F' : '#f97316'
                                                             }} />
                                                     </div>
                                                 </div>
@@ -584,7 +584,7 @@ export default function TransaksiIndex({ auth, events, filters = {} }) {
                                     </td>
                                     <td className="px-6 py-4">
                                         <span className={`px-3 py-1 inline-block whitespace-nowrap text-[10px] font-black uppercase rounded-full ${
-                                            event.status === 'Lunas' ? 'bg-green-50 text-green-600' : 'bg-red-50 text-[#FF2D55]'
+                                            event.status === 'Lunas' ? 'bg-green-50 text-green-600' : 'bg-red-50 text-[#A9791F]'
                                         }`}>
                                             {event.status}
                                         </span>
@@ -607,7 +607,7 @@ export default function TransaksiIndex({ auth, events, filters = {} }) {
                                             <div className="flex gap-2 p-1 mb-5 bg-gray-200 rounded-2xl w-fit">
                                                 <button
                                                     onClick={() => setExpandedTab('pembayaran')}
-                                                    className={`px-5 py-1.5 rounded-xl text-xs font-bold transition-all ${expandedTab === 'pembayaran' ? 'bg-white text-[#FF2D55] shadow-sm' : 'text-gray-500'}`}>
+                                                    className={`px-5 py-1.5 rounded-xl text-xs font-bold transition-all ${expandedTab === 'pembayaran' ? 'bg-white text-[#A9791F] shadow-sm' : 'text-gray-500'}`}>
                                                     Pembayaran Client
                                                 </button>
                                                 <button
@@ -623,7 +623,7 @@ export default function TransaksiIndex({ auth, events, filters = {} }) {
                                                     <div className="flex items-center justify-between mb-3">
                                                         <p className="text-xs font-bold tracking-widest text-gray-400 uppercase">Rincian Pembayaran</p>
                                                         <button onClick={() => { setModalBayar(event); formBayar.setData('id_event', event.id_event); }}
-                                                            className="flex items-center gap-1.5 px-3 py-1.5 bg-[#FF2D55] text-white text-xs font-bold rounded-lg hover:bg-red-600">
+                                                            className="flex items-center gap-1.5 px-3 py-1.5 bg-[#A9791F] text-white text-xs font-bold rounded-lg hover:bg-red-600">
                                                             <Plus size={12} /> Tambah Pembayaran
                                                         </button>
                                                     </div>

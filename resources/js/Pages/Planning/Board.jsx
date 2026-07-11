@@ -38,7 +38,7 @@ function groupItems(items) {
 
 function ProgressBar({ value }) {
     const v = Math.max(0, Math.min(100, value || 0));
-    const color = v >= 100 ? 'bg-green-500' : v > 0 ? 'bg-[#FF2D55]' : 'bg-gray-200';
+    const color = v >= 100 ? 'bg-green-500' : v > 0 ? 'bg-[#A9791F]' : 'bg-gray-200';
     return (
         <div className="w-full h-2 overflow-hidden bg-gray-100 rounded-full">
             <div className={`h-full ${color} transition-all`} style={{ width: `${v}%` }} />
@@ -118,7 +118,7 @@ export default function PlanningBoard({ Layout, event, tugas, pegawai, mode, rou
                 <div className="flex flex-wrap items-end justify-between gap-4">
                     <div>
                         <div className="flex items-center gap-1.5">
-                            <ListChecks size={14} className="text-[#FF2D55]" />
+                            <ListChecks size={14} className="text-[#A9791F]" />
                             <span className="text-xs font-bold tracking-wider text-gray-400 uppercase">
                                 {isPlanning ? 'Planning Event' : 'To-Do List'}
                             </span>
@@ -126,7 +126,7 @@ export default function PlanningBoard({ Layout, event, tugas, pegawai, mode, rou
                         <div className="flex flex-wrap items-center gap-2 mt-1">
                             <h1 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">{event.nama_event}</h1>
                             {event.kategori_event && (
-                                <span className="px-2 py-0.5 bg-pink-50 text-[#FF2D55] text-[10px] font-black uppercase tracking-wider rounded-full">
+                                <span className="px-2 py-0.5 bg-pink-50 text-[#A9791F] text-[10px] font-black uppercase tracking-wider rounded-full">
                                     {event.kategori_event}
                                 </span>
                             )}
@@ -212,7 +212,7 @@ export default function PlanningBoard({ Layout, event, tugas, pegawai, mode, rou
                                     className="w-full px-1 py-1 text-xs text-center text-gray-500 bg-transparent border-none rounded focus:ring-1 focus:ring-gray-200" />
                                 {/* PIC */}
                                 <select value={t.id_pegawai || ''} onChange={(e) => setField(t, 'id_pegawai', e.target.value)}
-                                    className="w-full px-2 py-1 text-xs text-gray-600 border border-gray-100 rounded-lg bg-gray-50 focus:ring-1 focus:ring-[#FF2D55] cursor-pointer">
+                                    className="w-full px-2 py-1 text-xs text-gray-600 border border-gray-100 rounded-lg bg-gray-50 focus:ring-1 focus:ring-[#A9791F] cursor-pointer">
                                     <option value="">—</option>
                                     {pegawai.map((p) => <option key={p.id_pegawai} value={p.id_pegawai}>{p.nama_pegawai}</option>)}
                                 </select>
@@ -230,7 +230,7 @@ export default function PlanningBoard({ Layout, event, tugas, pegawai, mode, rou
                                     <input type="range" min="0" max="100" step="5" value={t.progress || 0}
                                         onChange={(e) => setProgress(t, e.target.value)}
                                         onPointerUp={() => commitProgress(t)} onBlur={() => commitProgress(t)}
-                                        className="w-full accent-[#FF2D55] cursor-pointer" />
+                                        className="w-full accent-[#A9791F] cursor-pointer" />
                                     <span className="text-[11px] font-bold text-gray-500 w-8 text-right">{t.progress || 0}%</span>
                                 </div>
                                 {/* delete */}
@@ -265,20 +265,20 @@ export default function PlanningBoard({ Layout, event, tugas, pegawai, mode, rou
                         <div className="flex flex-col gap-2 sm:flex-row">
                             <input list="cat-list" value={newCat.kategori} placeholder="Kategori (mis. Talent)"
                                 onChange={(e) => setNewCat((c) => ({ ...c, kategori: e.target.value }))}
-                                className="sm:w-56 px-3 py-2 text-sm border border-gray-200 rounded-xl focus:ring-[#FF2D55] focus:border-[#FF2D55]" />
+                                className="sm:w-56 px-3 py-2 text-sm border border-gray-200 rounded-xl focus:ring-[#A9791F] focus:border-[#A9791F]" />
                             <datalist id="cat-list">{CATEGORY_ORDER.map((c) => <option key={c} value={c} />)}</datalist>
                             <input value={newCat.nama_tugas} placeholder="Nama item…" autoFocus
                                 onChange={(e) => setNewCat((c) => ({ ...c, nama_tugas: e.target.value }))}
                                 onKeyDown={(e) => e.key === 'Enter' && addItem(newCat.kategori, newCat.nama_tugas)}
-                                className="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-xl focus:ring-[#FF2D55] focus:border-[#FF2D55]" />
+                                className="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-xl focus:ring-[#A9791F] focus:border-[#A9791F]" />
                             <button onClick={() => addItem(newCat.kategori, newCat.nama_tugas)}
-                                className="px-4 py-2 bg-[#FF2D55] text-white text-sm font-bold rounded-xl hover:bg-[#e02249]">Tambah</button>
+                                className="px-4 py-2 bg-[#A9791F] text-white text-sm font-bold rounded-xl hover:bg-[#7A560F]">Tambah</button>
                             <button onClick={() => setShowNew(false)}
                                 className="px-4 py-2 text-sm font-bold text-gray-500 bg-gray-100 rounded-xl hover:bg-gray-200">Batal</button>
                         </div>
                     ) : (
                         <button onClick={() => setShowNew(true)}
-                            className="inline-flex items-center gap-2 text-sm font-bold text-gray-500 hover:text-[#FF2D55]">
+                            className="inline-flex items-center gap-2 text-sm font-bold text-gray-500 hover:text-[#A9791F]">
                             <Plus size={16} strokeWidth={3} /> Tambah Item / Kategori
                         </button>
                     )}
@@ -350,9 +350,9 @@ function AddItemInline({ value, onChange, onSubmit }) {
             <input value={value} placeholder="Tambah item…"
                 onChange={(e) => onChange(e.target.value)}
                 onKeyDown={(e) => { if (e.key === 'Enter') onSubmit(); }}
-                className="flex-1 max-w-md px-2 py-1.5 text-sm bg-transparent border-none rounded-lg focus:ring-1 focus:ring-[#FF2D55]" />
+                className="flex-1 max-w-md px-2 py-1.5 text-sm bg-transparent border-none rounded-lg focus:ring-1 focus:ring-[#A9791F]" />
             {value && value.trim() && (
-                <button onClick={onSubmit} className="px-3 py-1 bg-[#FF2D55] text-white text-xs font-bold rounded-lg hover:bg-[#e02249]">Tambah</button>
+                <button onClick={onSubmit} className="px-3 py-1 bg-[#A9791F] text-white text-xs font-bold rounded-lg hover:bg-[#7A560F]">Tambah</button>
             )}
         </div>
     );

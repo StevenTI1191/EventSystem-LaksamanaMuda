@@ -18,7 +18,7 @@ export default function PegawaiEdit({ auth, pegawai }) {
         put(route('manajemen.pegawai.update', pegawai.id_pegawai));
     };
 
-    const inputClass = 'w-full p-3 border border-gray-200 rounded-xl bg-gray-50 text-sm focus:ring-[#FF2D55] focus:border-[#FF2D55]';
+    const inputClass = 'w-full p-3 border border-gray-200 rounded-xl bg-gray-50 text-sm focus:ring-[#A9791F] focus:border-[#A9791F]';
     const labelClass = 'block mb-1 text-sm font-bold text-gray-700';
 
     return (
@@ -30,7 +30,7 @@ export default function PegawaiEdit({ auth, pegawai }) {
                 <div className="flex items-center gap-2 mt-2">
                     <Link
                         href={route('manajemen.pegawai.index')}
-                        className="flex items-center gap-1 px-3 py-1 text-xs font-bold text-white bg-[#FF2D55] rounded-full hover:bg-[#e02249] transition-colors"
+                        className="flex items-center gap-1 px-3 py-1 text-xs font-bold text-white bg-[#A9791F] rounded-full hover:bg-[#7A560F] transition-colors"
                     >
                         <ChevronLeft size={12} />
                         Kembali
@@ -148,7 +148,7 @@ export default function PegawaiEdit({ auth, pegawai }) {
                         <button
                             type="submit"
                             disabled={processing}
-                            className="px-8 py-2.5 text-sm font-bold text-white bg-[#FF2D55] rounded-xl hover:bg-[#e02249] transition-colors disabled:opacity-60"
+                            className="px-8 py-2.5 text-sm font-bold text-white bg-[#A9791F] rounded-xl hover:bg-[#7A560F] transition-colors disabled:opacity-60"
                         >
                             {processing ? 'Menyimpan...' : 'Update'}
                         </button>

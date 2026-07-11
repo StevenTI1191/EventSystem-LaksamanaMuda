@@ -125,20 +125,20 @@ export default function FinanceLayout({ children }) {
                             onClick={() => setMobileOpen(false)}
                             className={`relative flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all ${
                                 item.active
-                                    ? 'bg-[#FF2D55] text-white shadow-lg shadow-[#FF2D55]/30'
+                                    ? 'bg-[#A9791F] text-white shadow-lg shadow-[#A9791F]/30'
                                     : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'
                             }`}>
                             <div className="relative flex-shrink-0">
                                 <item.icon size={20} />
                                 {/* Dot kecil hanya saat sidebar collapse di desktop */}
                                 {item.name === 'Bukti Pembayaran' && unread > 0 && (
-                                    <span className={`absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#FF2D55] rounded-full border-2 border-white ${isSidebarOpen ? 'hidden' : 'hidden lg:block'}`} />
+                                    <span className={`absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#A9791F] rounded-full border-2 border-white ${isSidebarOpen ? 'hidden' : 'hidden lg:block'}`} />
                                 )}
                             </div>
                             <span className={`text-sm font-medium ${isSidebarOpen ? '' : 'lg:hidden'}`}>{item.name}</span>
                             {/* Badge angka */}
                             {item.name === 'Bukti Pembayaran' && unread > 0 && (
-                                <span className={`ml-auto px-1.5 py-0.5 text-[10px] font-black bg-white text-[#FF2D55] rounded-full leading-none ${isSidebarOpen ? '' : 'lg:hidden'}`}>
+                                <span className={`ml-auto px-1.5 py-0.5 text-[10px] font-black bg-white text-[#A9791F] rounded-full leading-none ${isSidebarOpen ? '' : 'lg:hidden'}`}>
                                     {unread}
                                 </span>
                             )}
@@ -149,7 +149,7 @@ export default function FinanceLayout({ children }) {
                 {/* PROFILE & LOGOUT */}
                 <div className="p-4 border-t border-gray-100">
                     <div className={`flex items-center gap-3 p-2 mb-2 ${!isSidebarOpen && 'lg:justify-center'}`}>
-                        <div className="w-8 h-8 rounded-full bg-[#FF2D55]/10 flex-shrink-0 flex items-center justify-center text-xs font-bold text-[#FF2D55]">
+                        <div className="w-8 h-8 rounded-full bg-[#A9791F]/10 flex-shrink-0 flex items-center justify-center text-xs font-bold text-[#A9791F]">
                             {user.nama_pegawai ? user.nama_pegawai.substring(0, 2).toUpperCase() : 'FN'}
                         </div>
                         <div className={`overflow-hidden leading-tight ${isSidebarOpen ? '' : 'lg:hidden'}`}>
@@ -199,7 +199,7 @@ export default function FinanceLayout({ children }) {
                             className="relative flex items-center justify-center w-10 h-10 text-gray-500 transition-colors rounded-xl hover:bg-gray-100 hover:text-gray-800">
                             <Bell size={20} />
                             {unread > 0 && (
-                                <span className="absolute flex items-center justify-center w-5 h-5 text-[10px] font-black text-white bg-[#FF2D55] rounded-full -top-1 -right-1">
+                                <span className="absolute flex items-center justify-center w-5 h-5 text-[10px] font-black text-white bg-[#A9791F] rounded-full -top-1 -right-1">
                                     {unread > 9 ? '9+' : unread}
                                 </span>
                             )}
@@ -213,7 +213,7 @@ export default function FinanceLayout({ children }) {
                                     <div className="flex items-center gap-2">
                                         <p className="text-sm font-extrabold text-gray-800">Notifikasi</p>
                                         {unread > 0 && (
-                                            <span className="px-1.5 py-0.5 text-[10px] font-black text-white bg-[#FF2D55] rounded-full">
+                                            <span className="px-1.5 py-0.5 text-[10px] font-black text-white bg-[#A9791F] rounded-full">
                                                 {unread} baru
                                             </span>
                                         )}
@@ -232,7 +232,7 @@ export default function FinanceLayout({ children }) {
                                         <div key={notif.id}
                                             className={`flex items-start gap-3 px-4 py-3 transition-colors ${!notif.is_read ? 'bg-red-50/60' : 'hover:bg-gray-50'}`}>
                                             <div className="flex items-center justify-center flex-shrink-0 w-9 h-9 mt-0.5 bg-orange-100 rounded-full">
-                                                <Upload size={15} className="text-[#FF2D55]" />
+                                                <Upload size={15} className="text-[#A9791F]" />
                                             </div>
                                             <div className="flex-1 min-w-0">
                                                 <p className="text-xs font-extrabold text-gray-800">{notif.judul}</p>
@@ -256,7 +256,7 @@ export default function FinanceLayout({ children }) {
                                 <div className="px-4 py-2 border-t border-gray-100 bg-gray-50">
                                     <Link href={route('finance.bukti.index')}
                                         onClick={() => setShowNotif(false)}
-                                        className="block text-xs font-bold text-center text-[#FF2D55] hover:underline">
+                                        className="block text-xs font-bold text-center text-[#A9791F] hover:underline">
                                         Lihat semua bukti pembayaran →
                                     </Link>
                                 </div>

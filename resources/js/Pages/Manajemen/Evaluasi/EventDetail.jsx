@@ -23,7 +23,7 @@ export default function EventDetail({ auth, event, tugas }) {
                 <div className="flex items-center gap-2 mt-2">
                     <Link
                         href={route('manajemen.evaluasi.index')}
-                        className="flex items-center gap-1 px-3 py-1 text-xs font-bold text-white bg-[#FF2D55] rounded-full hover:bg-[#e02249] transition-colors"
+                        className="flex items-center gap-1 px-3 py-1 text-xs font-bold text-white bg-[#A9791F] rounded-full hover:bg-[#7A560F] transition-colors"
                     >
                         <ChevronLeft size={12} />
                         Kembali
@@ -34,7 +34,7 @@ export default function EventDetail({ auth, event, tugas }) {
             {/* Info Event & PIC */}
             <div className="flex flex-col items-center mb-8">
                 <p className="mb-4 text-base font-extrabold text-gray-800">{event.nama_event}</p>
-                <div className="flex items-center justify-center w-20 h-20 mb-3 text-2xl font-black rounded-full bg-red-50 text-[#FF2D55]">
+                <div className="flex items-center justify-center w-20 h-20 mb-3 text-2xl font-black rounded-full bg-red-50 text-[#A9791F]">
                     {event.pic ? event.pic.nama_pegawai.substring(0, 2).toUpperCase() : 'N/A'}
                 </div>
                 <p className="text-xs text-gray-400">PIC: {event.pic ? event.pic.nama_pegawai : '-'}</p>
@@ -47,7 +47,7 @@ export default function EventDetail({ auth, event, tugas }) {
                 </div>
                 <table className="w-full">
                     <thead>
-                        <tr className="bg-[#FF2D55]">
+                        <tr className="bg-[#A9791F]">
                             <th className="w-12 px-6 py-3 text-xs font-bold text-left text-white uppercase">No</th>
                             <th className="px-6 py-3 text-xs font-bold text-left text-white uppercase">To Do List</th>
                             <th className="px-6 py-3 text-xs font-bold text-left text-white uppercase">Status</th>

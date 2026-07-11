@@ -129,7 +129,7 @@ export default function EventMarketingLayout({ children }) {
                             onClick={() => setMobileOpen(false)}
                             className={`flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all ${
                                 item.active
-                                    ? 'bg-[#FF2D55] text-white shadow-lg shadow-[#FF2D55]/30'
+                                    ? 'bg-[#A9791F] text-white shadow-lg shadow-[#A9791F]/30'
                                     : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'
                             }`}
                         >
@@ -142,7 +142,7 @@ export default function EventMarketingLayout({ children }) {
                 {/* PROFILE & LOGOUT */}
                 <div className="p-4 border-t border-gray-100">
                     <div className={`flex items-center gap-3 p-2 mb-2 ${!isSidebarOpen && 'lg:justify-center'}`}>
-                        <div className="w-8 h-8 rounded-full bg-[#FF2D55]/10 flex-shrink-0 flex items-center justify-center text-xs font-bold text-[#FF2D55]">
+                        <div className="w-8 h-8 rounded-full bg-[#A9791F]/10 flex-shrink-0 flex items-center justify-center text-xs font-bold text-[#A9791F]">
                             {user.nama_pegawai ? user.nama_pegawai.substring(0, 2).toUpperCase() : 'EM'}
                         </div>
                         <div className={`overflow-hidden leading-tight ${isSidebarOpen ? '' : 'lg:hidden'}`}>

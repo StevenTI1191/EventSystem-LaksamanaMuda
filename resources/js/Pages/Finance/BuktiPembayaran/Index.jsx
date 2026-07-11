@@ -104,8 +104,8 @@ export default function FinanceBuktiIndex({ buktiList, stats, filters }) {
                         <button key={tab.key} onClick={() => handleStatusFilter(tab.key)}
                             className={`flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-xl transition-all border ${
                                 activeStatus === tab.key
-                                    ? 'bg-[#FF2D55] text-white border-[#FF2D55]'
-                                    : 'bg-white text-gray-500 border-gray-200 hover:border-[#FF2D55]/50'
+                                    ? 'bg-[#A9791F] text-white border-[#A9791F]'
+                                    : 'bg-white text-gray-500 border-gray-200 hover:border-[#A9791F]/50'
                             }`}>
                             {tab.label}
                             <span className={`px-1.5 py-0.5 rounded-full text-[10px] ${activeStatus === tab.key ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-500'}`}>
@@ -119,7 +119,7 @@ export default function FinanceBuktiIndex({ buktiList, stats, filters }) {
                     <Search size={14} className="absolute text-gray-400 left-3 top-2.5" />
                     <input type="text" placeholder="Cari event / client..." value={search}
                         onChange={e => handleSearch(e.target.value)}
-                        className="w-full pl-9 pr-4 py-2 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:border-[#FF2D55] focus:outline-none" />
+                        className="w-full pl-9 pr-4 py-2 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:border-[#A9791F] focus:outline-none" />
                 </div>
             </div>
 
@@ -127,7 +127,7 @@ export default function FinanceBuktiIndex({ buktiList, stats, filters }) {
             <div className="overflow-hidden bg-white border border-gray-100 shadow-sm rounded-2xl">
                 <table className="w-full">
                     <thead>
-                        <tr className="bg-[#FF2D55]">
+                        <tr className="bg-[#A9791F]">
                             <th className="w-10 px-4 py-3 text-xs font-bold text-left text-white uppercase">No</th>
                             <th className="px-4 py-3 text-xs font-bold text-left text-white uppercase">Client</th>
                             <th className="px-4 py-3 text-xs font-bold text-left text-white uppercase">Event</th>
@@ -340,7 +340,7 @@ export default function FinanceBuktiIndex({ buktiList, stats, filters }) {
                                     placeholder={formVerify.data.status === 'Ditolak'
                                         ? 'Jelaskan alasan penolakan...'
                                         : 'Catatan opsional untuk client...'}
-                                    className="w-full p-3 text-sm border border-gray-200 rounded-xl bg-gray-50 resize-none focus:border-[#FF2D55] focus:outline-none" />
+                                    className="w-full p-3 text-sm border border-gray-200 rounded-xl bg-gray-50 resize-none focus:border-[#A9791F] focus:outline-none" />
                             </div>
                             <div className="flex gap-3 pt-1">
                                 <button type="button" onClick={() => setVerifyModal(null)}
@@ -351,7 +351,7 @@ export default function FinanceBuktiIndex({ buktiList, stats, filters }) {
                                     className={`flex-1 py-3 text-sm font-bold text-white rounded-xl transition-colors ${
                                         formVerify.data.status === 'Ditolak'
                                             ? 'bg-red-500 hover:bg-red-600'
-                                            : 'bg-[#FF2D55] hover:bg-red-600'
+                                            : 'bg-[#A9791F] hover:bg-red-600'
                                     }`}>
                                     {formVerify.processing ? 'Menyimpan...' : 'Simpan'}
                                 </button>

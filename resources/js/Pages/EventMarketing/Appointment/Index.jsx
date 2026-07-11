@@ -76,7 +76,7 @@ export default function AppointmentIndex({ appointments, counts, filters }) {
                     <button key={s} onClick={() => handleFilter(s)}
                         className={`px-4 py-1.5 text-xs font-bold rounded-full transition-colors ${
                             filterStatus === s
-                                ? 'bg-[#FF2D55] text-white'
+                                ? 'bg-[#A9791F] text-white'
                                 : 'bg-white border border-gray-200 text-gray-500 hover:bg-gray-50'
                         }`}>
                         {s}
@@ -97,7 +97,7 @@ export default function AppointmentIndex({ appointments, counts, filters }) {
                                     </span>
                                 </div>
 
-                                <p className="text-sm font-bold text-[#FF2D55] mb-3">
+                                <p className="text-sm font-bold text-[#A9791F] mb-3">
                                     {apt.client?.nama_client}
                                     {apt.client?.perusahaan_client && (
                                         <span className="font-normal text-gray-400"> — {apt.client.perusahaan_client}</span>
@@ -127,7 +127,7 @@ export default function AppointmentIndex({ appointments, counts, filters }) {
 
                             <Link
                                 href={route('em.appointment.show', apt.id)}
-                                className="flex items-center gap-1.5 px-4 py-2 bg-[#FF2D55] text-white text-xs font-bold rounded-xl hover:bg-[#e02249] transition-colors flex-shrink-0"
+                                className="flex items-center gap-1.5 px-4 py-2 bg-[#A9791F] text-white text-xs font-bold rounded-xl hover:bg-[#7A560F] transition-colors flex-shrink-0"
                             >
                                 <Eye size={14} />
                                 Detail

@@ -327,7 +327,7 @@ export default function Edit({ auth, event, clients, pegawais }) {
 
                     {errors.bentrok && (
                         <div className="flex items-start gap-3 p-4 mb-6 border border-red-200 bg-red-50 rounded-2xl">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF2D55" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A9791F" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                 <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
                             </svg>
                             <div>
@@ -344,7 +344,7 @@ export default function Edit({ auth, event, clients, pegawais }) {
                             Batal
                         </Link>
                         <button type="submit" disabled={processing}
-                            className="px-12 py-3 bg-[#FF2D55] text-white rounded-full font-bold shadow-lg shadow-red-200 hover:bg-red-600 transition-all">
+                            className="px-12 py-3 bg-[#A9791F] text-white rounded-full font-bold shadow-lg shadow-red-200 hover:bg-red-600 transition-all">
                             {processing ? 'Menyimpan...' : 'Simpan Perubahan'}
                         </button>
                     </div>

@@ -87,8 +87,8 @@ export default function ManajemenAppointmentIndex({ auth, appointments, counts, 
                             <button key={s} onClick={() => handleFilter(s)}
                                 className={`px-4 py-1.5 text-xs font-bold rounded-xl border transition-all ${
                                     activeStatus === s
-                                        ? 'bg-[#FF2D55] text-white border-[#FF2D55]'
-                                        : 'bg-white text-gray-500 border-gray-200 hover:border-[#FF2D55]/40'
+                                        ? 'bg-[#A9791F] text-white border-[#A9791F]'
+                                        : 'bg-white text-gray-500 border-gray-200 hover:border-[#A9791F]/40'
                                 }`}>
                                 {s}
                             </button>
@@ -99,7 +99,7 @@ export default function ManajemenAppointmentIndex({ auth, appointments, counts, 
                         <Search size={14} className="absolute text-gray-400 left-3 top-2.5" />
                         <input type="text" placeholder="Cari nama client..."
                             value={search} onChange={e => handleSearch(e.target.value)}
-                            className="w-full pl-9 pr-4 py-2 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:border-[#FF2D55] focus:outline-none" />
+                            className="w-full pl-9 pr-4 py-2 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:border-[#A9791F] focus:outline-none" />
                     </div>
                 </div>
             </div>
@@ -119,7 +119,7 @@ export default function ManajemenAppointmentIndex({ auth, appointments, counts, 
                                 </div>
 
                                 {/* Client */}
-                                <p className="text-sm font-bold text-[#FF2D55] mb-3">
+                                <p className="text-sm font-bold text-[#A9791F] mb-3">
                                     {apt.client?.nama_client}
                                     {apt.client?.perusahaan_client && (
                                         <span className="font-normal text-gray-400"> — {apt.client.perusahaan_client}</span>

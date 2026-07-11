@@ -82,7 +82,7 @@ export default function LaporanIndex() {
                         margin: 0;
                     }
                     .print-header {
-                        background: #FF2D55 !important;
+                        background: #A9791F !important;
                         -webkit-print-color-adjust: exact;
                         print-color-adjust: exact;
                         color: white !important;
@@ -103,10 +103,10 @@ export default function LaporanIndex() {
                     .pc-purple{ color: #7c3aed !important; }
 
                     .print-section { margin-bottom: 16px; page-break-inside: avoid; }
-                    .print-section h2 { font-size: 11px; font-weight: bold; border-bottom: 2px solid #FF2D55; padding-bottom: 4px; margin-bottom: 8px; }
+                    .print-section h2 { font-size: 11px; font-weight: bold; border-bottom: 2px solid #A9791F; padding-bottom: 4px; margin-bottom: 8px; }
 
                     table { width: 100%; border-collapse: collapse; font-size: 9px; }
-                    thead tr { background: #FF2D55 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+                    thead tr { background: #A9791F !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
                     thead th { color: white !important; padding: 5px 8px; text-align: left; font-size: 8px; text-transform: uppercase; }
                     tbody tr:nth-child(even) { background: #f9fafb; }
                     tbody td { padding: 5px 8px; border-bottom: 1px solid #f3f4f6; }
@@ -138,7 +138,7 @@ export default function LaporanIndex() {
                     <div className="flex flex-wrap gap-2 mb-5">
                         {[{key:'bulan',label:'Per Bulan'},{key:'tahun',label:'Per Tahun'},{key:'custom',label:'Custom Range'}].map(t => (
                             <button key={t.key} onClick={() => setTipe(t.key)}
-                                className={`px-4 py-2 text-xs font-bold rounded-xl border transition-all ${tipe === t.key ? 'bg-[#FF2D55] text-white border-[#FF2D55]' : 'bg-white text-gray-500 border-gray-200 hover:border-[#FF2D55]/40'}`}>
+                                className={`px-4 py-2 text-xs font-bold rounded-xl border transition-all ${tipe === t.key ? 'bg-[#A9791F] text-white border-[#A9791F]' : 'bg-white text-gray-500 border-gray-200 hover:border-[#A9791F]/40'}`}>
                                 {t.label}
                             </button>
                         ))}
@@ -177,7 +177,7 @@ export default function LaporanIndex() {
                             </div>
                         </>)}
                         <button onClick={handlePreview} disabled={loading}
-                            className="flex items-center gap-2 px-5 py-2 text-sm font-bold text-white bg-[#FF2D55] rounded-xl hover:bg-red-600 disabled:opacity-60 transition-colors">
+                            className="flex items-center gap-2 px-5 py-2 text-sm font-bold text-white bg-[#A9791F] rounded-xl hover:bg-red-600 disabled:opacity-60 transition-colors">
                             {loading ? <RefreshCw size={16} className="animate-spin"/> : <Search size={16}/>}
                             {loading ? 'Memuat...' : 'Tampilkan'}
                         </button>
@@ -265,7 +265,7 @@ export default function LaporanIndex() {
                                     <div className="overflow-x-auto">
                                         <table className="w-full">
                                             <thead>
-                                                <tr className="bg-[#FF2D55]">
+                                                <tr className="bg-[#A9791F]">
                                                     {['No','Event','Client','Deal','Terbayar','Pengeluaran','Laba','Status'].map(h => (
                                                         <th key={h} className="px-4 py-3 text-xs font-bold text-left text-white uppercase">{h}</th>
                                                     ))}
@@ -282,7 +282,7 @@ export default function LaporanIndex() {
                                                         <td className="px-4 py-3 text-sm font-bold text-red-500 td-red">{ev.pengeluaran}</td>
                                                         <td className={`px-4 py-3 text-sm font-extrabold ${ev.laba_raw >= 0 ? 'text-blue-600 td-blue' : 'text-orange-500 td-red'}`}>{ev.laba}</td>
                                                         <td className="px-4 py-3">
-                                                            <span className={`px-2 py-1 text-[10px] font-black uppercase rounded-full ${ev.status === 'Lunas' ? 'bg-green-50 text-green-600 badge-lunas' : 'bg-red-50 text-[#FF2D55] badge-belum'}`}>
+                                                            <span className={`px-2 py-1 text-[10px] font-black uppercase rounded-full ${ev.status === 'Lunas' ? 'bg-green-50 text-green-600 badge-lunas' : 'bg-red-50 text-[#A9791F] badge-belum'}`}>
                                                                 {ev.status}
                                                             </span>
                                                         </td>
@@ -306,7 +306,7 @@ export default function LaporanIndex() {
                                     <div className="overflow-x-auto">
                                         <table className="w-full">
                                             <thead>
-                                                <tr className="bg-[#FF2D55]">
+                                                <tr className="bg-[#A9791F]">
                                                     {['No','Tanggal','Event','Client','Keterangan','Nominal'].map(h => (
                                                         <th key={h} className="px-4 py-3 text-xs font-bold text-left text-white uppercase">{h}</th>
                                                     ))}
@@ -341,7 +341,7 @@ export default function LaporanIndex() {
                                     <div className="overflow-x-auto">
                                         <table className="w-full">
                                             <thead>
-                                                <tr className="bg-[#FF2D55]">
+                                                <tr className="bg-[#A9791F]">
                                                     {['No','Event','Tipe','Nama Item','Qty','Harga','Total'].map(h => (
                                                         <th key={h} className="px-4 py-3 text-xs font-bold text-left text-white uppercase">{h}</th>
                                                     ))}

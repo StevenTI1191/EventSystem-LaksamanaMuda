@@ -35,7 +35,7 @@ export default function FinanceClientIndex({ auth, clients, filters }) {
                         placeholder="Search client..."
                         value={searchTerm}
                         onChange={e => handleSearch(e.target.value)}
-                        className="w-full pl-4 pr-10 py-2 border border-gray-200 rounded-xl text-sm focus:ring-[#FF2D55] focus:border-[#FF2D55] bg-gray-50"
+                        className="w-full pl-4 pr-10 py-2 border border-gray-200 rounded-xl text-sm focus:ring-[#A9791F] focus:border-[#A9791F] bg-gray-50"
                     />
                     <Search size={14} className="absolute right-3 top-2.5 text-gray-400" />
                 </div>
@@ -47,7 +47,7 @@ export default function FinanceClientIndex({ auth, clients, filters }) {
                 </div>
                 <table className="w-full">
                     <thead>
-                        <tr className="bg-[#FF2D55]">
+                        <tr className="bg-[#A9791F]">
                             <th className="w-12 px-6 py-3 text-xs font-bold tracking-wider text-left text-white uppercase">No</th>
                             <th className="px-6 py-3 text-xs font-bold tracking-wider text-left text-white uppercase">Nama Client</th>
                             <th className="px-6 py-3 text-xs font-bold tracking-wider text-left text-white uppercase">Perusahaan</th>
@@ -69,7 +69,7 @@ export default function FinanceClientIndex({ auth, clients, filters }) {
                                 <td className="px-6 py-4">
                                     <Link
                                         href={route('finance.client.show', client.id)}
-                                        className="flex items-center gap-1.5 px-4 py-1.5 bg-[#FF2D55] text-white text-xs font-bold rounded-lg hover:bg-red-600 transition-colors w-fit"
+                                        className="flex items-center gap-1.5 px-4 py-1.5 bg-[#A9791F] text-white text-xs font-bold rounded-lg hover:bg-red-600 transition-colors w-fit"
                                     >
                                         Detail
                                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">

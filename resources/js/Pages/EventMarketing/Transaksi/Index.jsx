@@ -35,14 +35,14 @@ export default function TransaksiIndex({ auth, events }) {
             <div className="mb-8">
                 <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">Transaksi</h1>
                 <p className="mt-1 font-medium text-gray-500">
-                    Selamat Datang, <span className="text-[#FF2D55] font-bold">{auth.user.nama_pegawai}</span>!
+                    Selamat Datang, <span className="text-[#A9791F] font-bold">{auth.user.nama_pegawai}</span>!
                 </p>
             </div>
 
             <div className="overflow-hidden bg-white border border-gray-100 shadow-sm rounded-2xl">
                 <table className="w-full">
                     <thead>
-                        <tr className="bg-[#FF2D55]">
+                        <tr className="bg-[#A9791F]">
                             <th className="w-12 px-6 py-3 text-xs font-bold tracking-wider text-left text-white uppercase">No</th>
                             <th className="px-6 py-3 text-xs font-bold tracking-wider text-left text-white uppercase">Event</th>
                             <th className="px-6 py-3 text-xs font-bold tracking-wider text-left text-white uppercase">Client</th>
@@ -81,7 +81,7 @@ export default function TransaksiIndex({ auth, events }) {
                                                         <div className="h-2 rounded-full transition-all duration-500"
                                                             style={{
                                                                 width: `${pct}%`,
-                                                                background: pct >= 100 ? '#16a34a' : pct >= 50 ? '#FF2D55' : '#f97316'
+                                                                background: pct >= 100 ? '#16a34a' : pct >= 50 ? '#A9791F' : '#f97316'
                                                             }} />
                                                     </div>
                                                 </div>
@@ -96,7 +96,7 @@ export default function TransaksiIndex({ auth, events }) {
                                     </td>
                                     <td className="px-6 py-4">
                                         <span className={'px-3 py-1 inline-block whitespace-nowrap text-[10px] font-black uppercase rounded-full ' + (
-                                            event.status === 'Lunas' ? 'bg-green-50 text-green-600' : 'bg-red-50 text-[#FF2D55]'
+                                            event.status === 'Lunas' ? 'bg-green-50 text-green-600' : 'bg-red-50 text-[#A9791F]'
                                         )}>
                                             {event.status}
                                         </span>
@@ -118,7 +118,7 @@ export default function TransaksiIndex({ auth, events }) {
                                             <div className="flex gap-2 p-1 mb-5 bg-gray-200 rounded-2xl w-fit">
                                                 <button
                                                     onClick={() => setExpandedTab('pembayaran')}
-                                                    className={'px-5 py-1.5 rounded-xl text-xs font-bold transition-all ' + (expandedTab === 'pembayaran' ? 'bg-white text-[#FF2D55] shadow-sm' : 'text-gray-500')}>
+                                                    className={'px-5 py-1.5 rounded-xl text-xs font-bold transition-all ' + (expandedTab === 'pembayaran' ? 'bg-white text-[#A9791F] shadow-sm' : 'text-gray-500')}>
                                                     Pembayaran Client
                                                 </button>
                                                 <button

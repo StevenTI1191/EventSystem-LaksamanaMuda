@@ -40,7 +40,7 @@ export default function PegawaiDetail({ auth, pegawai, events, stats, clients = 
                 <div className="flex items-center gap-2 mt-2">
                     <Link
                         href={route('manajemen.evaluasi.index')}
-                        className="flex items-center gap-1 px-3 py-1 text-xs font-bold text-white bg-[#FF2D55] rounded-full hover:bg-[#e02249] transition-colors"
+                        className="flex items-center gap-1 px-3 py-1 text-xs font-bold text-white bg-[#A9791F] rounded-full hover:bg-[#7A560F] transition-colors"
                     >
                         <ChevronLeft size={12} />
                         Kembali
@@ -50,7 +50,7 @@ export default function PegawaiDetail({ auth, pegawai, events, stats, clients = 
 
             {/* Profile Pegawai */}
             <div className="flex flex-col items-center mb-8">
-                <div className="flex items-center justify-center w-20 h-20 mb-3 text-2xl font-black rounded-full bg-red-50 text-[#FF2D55]">
+                <div className="flex items-center justify-center w-20 h-20 mb-3 text-2xl font-black rounded-full bg-red-50 text-[#A9791F]">
                     {pegawai.nama_pegawai.substring(0, 2).toUpperCase()}
                 </div>
                 <p className="text-lg font-extrabold text-gray-800">{pegawai.nama_pegawai}</p>
@@ -91,10 +91,10 @@ export default function PegawaiDetail({ auth, pegawai, events, stats, clients = 
                                 <h3 className="text-base font-extrabold text-gray-900">Closing Rate</h3>
                                 <p className="text-xs text-gray-400">Klien dari appointment yang akhirnya menjadi event di Laksamana Muda</p>
                             </div>
-                            <span className="text-4xl font-black text-[#FF2D55]">{stats.closing_rate}%</span>
+                            <span className="text-4xl font-black text-[#A9791F]">{stats.closing_rate}%</span>
                         </div>
                         <div className="w-full h-3 overflow-hidden bg-gray-100 rounded-full">
-                            <div className="h-3 rounded-full bg-[#FF2D55] transition-all" style={{ width: `${stats.closing_rate}%` }} />
+                            <div className="h-3 rounded-full bg-[#A9791F] transition-all" style={{ width: `${stats.closing_rate}%` }} />
                         </div>
                         <p className="mt-2 text-xs text-gray-500">
                             <b className="text-gray-800">{stats.klien_closing}</b> dari <b className="text-gray-800">{stats.klien_dihandle}</b> klien yang ditangani sudah memiliki event.
@@ -102,12 +102,12 @@ export default function PegawaiDetail({ auth, pegawai, events, stats, clients = 
                     </div>
 
                     <div className="grid grid-cols-2 gap-4 mb-6 md:grid-cols-3">
-                        <StatCard title="Klien Di-handle"      value={stats.klien_dihandle}      icon={<Users size={20} />}         color="#FF2D55" />
-                        <StatCard title="Klien Closing"         value={stats.klien_closing}       icon={<CheckCircle size={20} />}   color="#FF2D55" />
-                        <StatCard title="Closing Rate"          value={`${stats.closing_rate}%`}  icon={<TrendingUp size={20} />}    color="#FF2D55" />
-                        <StatCard title="Appointment Ditangani" value={stats.total_appointment}   icon={<Calendar size={20} />}      color="#FF2D55" />
-                        <StatCard title="Appointment Selesai"   value={stats.appointment_selesai} icon={<CalendarCheck size={20} />} color="#FF2D55" />
-                        <StatCard title="Event sebagai PIC"     value={stats.total_event_pic}     icon={<Layout size={20} />}        color="#FF2D55" />
+                        <StatCard title="Klien Di-handle"      value={stats.klien_dihandle}      icon={<Users size={20} />}         color="#A9791F" />
+                        <StatCard title="Klien Closing"         value={stats.klien_closing}       icon={<CheckCircle size={20} />}   color="#A9791F" />
+                        <StatCard title="Closing Rate"          value={`${stats.closing_rate}%`}  icon={<TrendingUp size={20} />}    color="#A9791F" />
+                        <StatCard title="Appointment Ditangani" value={stats.total_appointment}   icon={<Calendar size={20} />}      color="#A9791F" />
+                        <StatCard title="Appointment Selesai"   value={stats.appointment_selesai} icon={<CalendarCheck size={20} />} color="#A9791F" />
+                        <StatCard title="Event sebagai PIC"     value={stats.total_event_pic}     icon={<Layout size={20} />}        color="#A9791F" />
                     </div>
 
                     <div className="mb-8 overflow-hidden bg-white border border-gray-100 shadow-sm rounded-2xl">
@@ -182,7 +182,7 @@ export default function PegawaiDetail({ auth, pegawai, events, stats, clients = 
                                 </button>
                             )}
                             <button type="submit" disabled={noteForm.processing}
-                                className="flex items-center gap-2 px-5 py-2 text-xs font-bold text-white bg-[#FF2D55] rounded-xl hover:bg-red-600 transition-colors disabled:opacity-60">
+                                className="flex items-center gap-2 px-5 py-2 text-xs font-bold text-white bg-[#A9791F] rounded-xl hover:bg-red-600 transition-colors disabled:opacity-60">
                                 <Save size={13} />
                                 {noteForm.processing ? 'Menyimpan...' : 'Simpan Note'}
                             </button>
@@ -198,7 +198,7 @@ export default function PegawaiDetail({ auth, pegawai, events, stats, clients = 
                 </div>
                 <table className="w-full">
                     <thead>
-                        <tr className="bg-[#FF2D55]">
+                        <tr className="bg-[#A9791F]">
                             <th className="w-10 px-6 py-3 text-xs font-bold text-left text-white uppercase">No</th>
                             <th className="px-6 py-3 text-xs font-bold text-left text-white uppercase">Event</th>
                             <th className="px-6 py-3 text-xs font-bold text-left text-white uppercase">Tanggal</th>
@@ -223,7 +223,7 @@ export default function PegawaiDetail({ auth, pegawai, events, stats, clients = 
                                             onClick={() => toggle(event.id_event)}
                                             className={'flex items-center gap-1 px-3 py-1.5 text-xs font-bold rounded-lg border transition-colors ' + (
                                                 expanded[event.id_event]
-                                                    ? 'bg-[#FF2D55] text-white border-[#FF2D55]'
+                                                    ? 'bg-[#A9791F] text-white border-[#A9791F]'
                                                     : 'text-gray-500 border-gray-200 hover:bg-gray-50'
                                             )}
                                         >

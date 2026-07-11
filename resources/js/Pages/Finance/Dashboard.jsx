@@ -101,7 +101,7 @@ export default function FinanceDashboard({ kpi, chartData, recentTransaksi, topE
             <div className="mb-8">
                 <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">Finance Dashboard</h1>
                 <p className="mt-1 font-medium text-gray-500">
-                    Selamat Datang, <span className="text-[#FF2D55] font-bold">{auth.user.nama_pegawai}</span>!
+                    Selamat Datang, <span className="text-[#A9791F] font-bold">{auth.user.nama_pegawai}</span>!
                     <span className="ml-2 text-xs text-gray-400">Tahun {new Date().getFullYear()}</span>
                 </p>
             </div>
@@ -142,7 +142,7 @@ export default function FinanceDashboard({ kpi, chartData, recentTransaksi, topE
                                 Pemasukan
                             </span>
                             <span className="flex items-center gap-1.5">
-                                <span className="inline-block w-3 h-3 rounded-full bg-[#FF2D55]" />
+                                <span className="inline-block w-3 h-3 rounded-full bg-[#A9791F]" />
                                 Pengeluaran
                             </span>
                         </div>
@@ -154,7 +154,7 @@ export default function FinanceDashboard({ kpi, chartData, recentTransaksi, topE
                             <YAxis tickFormatter={(v) => fmtShort(v)} tick={{ fontSize: 10, fill: '#9ca3af' }} axisLine={false} tickLine={false} width={70} />
                             <Tooltip content={<CustomTooltip />} />
                             <Bar dataKey="pemasukan"   name="Pemasukan"   fill="#22c55e" radius={[6,6,0,0]} />
-                            <Bar dataKey="pengeluaran" name="Pengeluaran" fill="#FF2D55" radius={[6,6,0,0]} />
+                            <Bar dataKey="pengeluaran" name="Pengeluaran" fill="#A9791F" radius={[6,6,0,0]} />
                         </BarChart>
                     </ResponsiveContainer>
                 </div>
@@ -213,7 +213,7 @@ export default function FinanceDashboard({ kpi, chartData, recentTransaksi, topE
                                         <span className={`px-2.5 py-1 text-[10px] font-black uppercase rounded-full ${
                                             e.status === 'Lunas'
                                                 ? 'bg-green-50 text-green-600'
-                                                : 'bg-red-50 text-[#FF2D55]'
+                                                : 'bg-red-50 text-[#A9791F]'
                                         }`}>
                                             {e.status}
                                         </span>

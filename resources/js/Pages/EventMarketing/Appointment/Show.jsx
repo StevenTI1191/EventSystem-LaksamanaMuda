@@ -102,7 +102,7 @@ export default function AppointmentShow({ appointment }) {
 
             <div className="mb-6">
                 <Link href={route('em.appointment.index')}
-                    className="flex items-center gap-1 text-sm text-gray-400 hover:text-[#FF2D55] mb-4">
+                    className="flex items-center gap-1 text-sm text-gray-400 hover:text-[#A9791F] mb-4">
                     <ChevronLeft size={16} /> Kembali
                 </Link>
                 <div className="flex items-center gap-3">
@@ -126,7 +126,7 @@ export default function AppointmentShow({ appointment }) {
                     <div className="space-y-3">
                         <div className="flex items-center gap-3">
                             <div className="flex items-center justify-center flex-shrink-0 w-8 h-8 rounded-lg bg-red-50">
-                                <Users size={14} className="text-[#FF2D55]" />
+                                <Users size={14} className="text-[#A9791F]" />
                             </div>
                             <div>
                                 <p className="text-[10px] text-gray-400 uppercase tracking-wider">Nama</p>
@@ -136,7 +136,7 @@ export default function AppointmentShow({ appointment }) {
                         {appointment.client?.perusahaan_client && (
                             <div className="flex items-center gap-3">
                                 <div className="flex items-center justify-center flex-shrink-0 w-8 h-8 rounded-lg bg-red-50">
-                                    <Building size={14} className="text-[#FF2D55]" />
+                                    <Building size={14} className="text-[#A9791F]" />
                                 </div>
                                 <div>
                                     <p className="text-[10px] text-gray-400 uppercase tracking-wider">Perusahaan</p>
@@ -147,7 +147,7 @@ export default function AppointmentShow({ appointment }) {
                         {appointment.client?.no_telp_client && (
                             <div className="flex items-center gap-3">
                                 <div className="flex items-center justify-center flex-shrink-0 w-8 h-8 rounded-lg bg-red-50">
-                                    <Phone size={14} className="text-[#FF2D55]" />
+                                    <Phone size={14} className="text-[#A9791F]" />
                                 </div>
                                 <div>
                                     <p className="text-[10px] text-gray-400 uppercase tracking-wider">No HP</p>
@@ -158,7 +158,7 @@ export default function AppointmentShow({ appointment }) {
                         {appointment.client?.email_client && (
                             <div className="flex items-center gap-3">
                                 <div className="flex items-center justify-center flex-shrink-0 w-8 h-8 rounded-lg bg-red-50">
-                                    <Mail size={14} className="text-[#FF2D55]" />
+                                    <Mail size={14} className="text-[#A9791F]" />
                                 </div>
                                 <div>
                                     <p className="text-[10px] text-gray-400 uppercase tracking-wider">Email</p>
@@ -230,7 +230,7 @@ export default function AppointmentShow({ appointment }) {
                             <button
                                 onClick={() => setShowKonfirmModal(true)}
                                 disabled={konfirmLoading}
-                                className="flex-1 py-3 bg-[#FF2D55] text-white font-bold rounded-xl hover:bg-[#e02249] transition-colors disabled:opacity-60"
+                                className="flex-1 py-3 bg-[#A9791F] text-white font-bold rounded-xl hover:bg-[#7A560F] transition-colors disabled:opacity-60"
                             >
                                 {konfirmLoading ? 'Memproses...' : '✅ Konfirmasi Sesuai Jadwal'}
                             </button>
@@ -328,7 +328,7 @@ export default function AppointmentShow({ appointment }) {
                             </button>
                             <button
                                 onClick={handleKonfirmasiLangsung}
-                                className="flex-1 py-2.5 bg-[#FF2D55] text-white font-bold rounded-xl hover:bg-[#e02249] transition-colors"
+                                className="flex-1 py-2.5 bg-[#A9791F] text-white font-bold rounded-xl hover:bg-[#7A560F] transition-colors"
                             >
                                 Ya, Konfirmasi
                             </button>
@@ -358,7 +358,7 @@ export default function AppointmentShow({ appointment }) {
                                     value={rescheduleForm.tgl_konfirmasi}
                                     onChange={e => setRescheduleForm(prev => ({ ...prev, tgl_konfirmasi: e.target.value }))}
                                     required
-                                    className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:ring-[#FF2D55] focus:border-[#FF2D55]"
+                                    className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:ring-[#A9791F] focus:border-[#A9791F]"
                                 />
                             </div>
                             <div>
@@ -367,7 +367,7 @@ export default function AppointmentShow({ appointment }) {
                                     type="time"
                                     value={rescheduleForm.jam_konfirmasi}
                                     onChange={e => setRescheduleForm(prev => ({ ...prev, jam_konfirmasi: e.target.value }))}
-                                    className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:ring-[#FF2D55] focus:border-[#FF2D55]"
+                                    className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:ring-[#A9791F] focus:border-[#A9791F]"
                                 />
                             </div>
                             <div>
@@ -377,7 +377,7 @@ export default function AppointmentShow({ appointment }) {
                                     value={rescheduleForm.catatan_em}
                                     onChange={e => setRescheduleForm(prev => ({ ...prev, catatan_em: e.target.value }))}
                                     placeholder="Contoh: Jadwal diubah karena ada acara internal, mohon maaf atas ketidaknyamanannya"
-                                    className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:ring-[#FF2D55] focus:border-[#FF2D55] resize-none"
+                                    className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:ring-[#A9791F] focus:border-[#A9791F] resize-none"
                                 />
                             </div>
                             <div className="flex gap-3 pt-2">
@@ -421,7 +421,7 @@ export default function AppointmentShow({ appointment }) {
                                     value={batalForm.data.catatan_em}
                                     onChange={e => batalForm.setData('catatan_em', e.target.value)}
                                     placeholder="Jelaskan alasan pembatalan (min. 5 karakter)..."
-                                    className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:ring-[#FF2D55] focus:border-[#FF2D55] resize-none"
+                                    className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:ring-[#A9791F] focus:border-[#A9791F] resize-none"
                                 />
                                 {batalForm.data.catatan_em.trim().length > 0 && batalForm.data.catatan_em.trim().length < 5 && (
                                     <p className="mt-1 text-xs text-red-400">⚠ Minimal 5 karakter</p>

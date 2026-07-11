@@ -73,11 +73,11 @@ export default function FinanceJadwalAcara({ events }) {
                     <div className="flex items-center gap-3">
                         <button onClick={prevMonth} className="flex items-center justify-center w-8 h-8 text-gray-500 border border-gray-200 rounded-lg hover:bg-gray-50">&#8249;</button>
                         <select value={m} onChange={e => setCurrentDate(new Date(y, Number(e.target.value), 1))}
-                            className="px-3 py-1.5 text-sm font-semibold text-gray-800 bg-white border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#FF2D55]/30">
+                            className="px-3 py-1.5 text-sm font-semibold text-gray-800 bg-white border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#A9791F]/30">
                             {monthNames.map((name, i) => <option key={i} value={i}>{name}</option>)}
                         </select>
                         <select value={y} onChange={e => setCurrentDate(new Date(Number(e.target.value), m, 1))}
-                            className="px-3 py-1.5 text-sm font-semibold text-gray-800 bg-white border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#FF2D55]/30">
+                            className="px-3 py-1.5 text-sm font-semibold text-gray-800 bg-white border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#A9791F]/30">
                             {Array.from({ length: 9 }, (_, i) => new Date().getFullYear() - 3 + i).map(yr => <option key={yr} value={yr}>{yr}</option>)}
                         </select>
                         <button onClick={nextMonth} className="flex items-center justify-center w-8 h-8 text-gray-500 border border-gray-200 rounded-lg hover:bg-gray-50">&#8250;</button>
@@ -88,7 +88,7 @@ export default function FinanceJadwalAcara({ events }) {
                 <div className="flex flex-wrap gap-2 mb-4">
                     {['all', 'Upcoming', 'Done'].map(f => (
                         <button key={f} onClick={() => setActiveFilter(f)}
-                            className={`px-4 py-1 rounded-full text-xs font-medium border transition-all ${activeFilter === f ? 'bg-[#FF2D55] text-white border-[#FF2D55]' : 'bg-white text-gray-500 border-gray-200 hover:bg-gray-50'}`}>
+                            className={`px-4 py-1 rounded-full text-xs font-medium border transition-all ${activeFilter === f ? 'bg-[#A9791F] text-white border-[#A9791F]' : 'bg-white text-gray-500 border-gray-200 hover:bg-gray-50'}`}>
                             {f === 'all' ? 'Semua' : f}
                         </button>
                     ))}
@@ -97,18 +97,18 @@ export default function FinanceJadwalAcara({ events }) {
                 <div className="overflow-hidden bg-white border border-gray-200 shadow-sm rounded-2xl">
                     <div className="grid grid-cols-7 bg-gray-50 border-b border-gray-200">
                         {dayNames.map((d, i) => (
-                            <div key={d} className={`py-3 text-center text-xs font-semibold ${i >= 5 ? 'text-[#FF2D55]' : 'text-gray-500'}`}>{d}</div>
+                            <div key={d} className={`py-3 text-center text-xs font-semibold ${i >= 5 ? 'text-[#A9791F]' : 'text-gray-500'}`}>{d}</div>
                         ))}
                     </div>
                     <div className="grid grid-cols-7">
                         {cells.map((cell, i) => (
                             <div key={i} className={`relative min-h-[110px] p-2 border-b border-r border-gray-200 transition-colors hover:bg-gray-50
                                 ${i % 7 === 6 ? 'border-r-0' : ''}
-                                ${cell.isOther ? 'bg-gray-100/70' : cell.isToday ? 'bg-[#FF2D55]/5' : cell.isWeekend ? 'bg-rose-50/70' : 'bg-white'}`}>
+                                ${cell.isOther ? 'bg-gray-100/70' : cell.isToday ? 'bg-[#A9791F]/5' : cell.isWeekend ? 'bg-rose-50/70' : 'bg-white'}`}>
                                 <span className={`inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold mb-1
-                                    ${cell.isToday ? 'bg-[#FF2D55] text-white' :
+                                    ${cell.isToday ? 'bg-[#A9791F] text-white' :
                                       cell.isOther ? 'text-gray-300' :
-                                      cell.isWeekend ? 'text-[#FF2D55]' : 'text-gray-500'}`}>
+                                      cell.isWeekend ? 'text-[#A9791F]' : 'text-gray-500'}`}>
                                     {cell.day}
                                 </span>
                                 {cell.dayEvents.slice(0, 2).map(ev => (
@@ -128,7 +128,7 @@ export default function FinanceJadwalAcara({ events }) {
                 {selectedEvent && (
                     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40" onClick={() => setSelectedEvent(null)}>
                         <div className="w-full max-w-md max-h-[90vh] overflow-y-auto bg-white shadow-2xl rounded-2xl" onClick={e => e.stopPropagation()}>
-                            <div className="relative h-40 bg-gradient-to-br from-[#FF2D55]/20 to-gray-200">
+                            <div className="relative h-40 bg-gradient-to-br from-[#A9791F]/20 to-gray-200">
                                 {selectedEvent.poster ? (
                                     <img src={`/${selectedEvent.poster}`} alt={selectedEvent.title} className="object-cover w-full h-full" />
                                 ) : (
@@ -145,7 +145,7 @@ export default function FinanceJadwalAcara({ events }) {
                             <div className="p-5">
                                 <h3 className="text-lg font-bold text-gray-900">{selectedEvent.title}</h3>
                                 {selectedEvent.kategori && (
-                                    <span className="inline-block mt-1 mb-3 px-2 py-0.5 text-[10px] font-bold text-[#FF2D55] bg-[#FF2D55]/10 rounded-full">{selectedEvent.kategori}</span>
+                                    <span className="inline-block mt-1 mb-3 px-2 py-0.5 text-[10px] font-bold text-[#A9791F] bg-[#A9791F]/10 rounded-full">{selectedEvent.kategori}</span>
                                 )}
                                 <div className="space-y-2">
                                     {[

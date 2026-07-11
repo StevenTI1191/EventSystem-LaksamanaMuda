@@ -109,8 +109,8 @@ export default function Index({ auth, events, filters, clients, pegawais }) {
                                 <X size={18} className="text-gray-600" />
                             </button>
                             <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-1.5 rounded-full shadow-sm flex items-center gap-1.5">
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#FF2D55] inline-block"></span>
-                                <span className="text-[10px] font-black uppercase tracking-wider text-[#FF2D55]">
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#A9791F] inline-block"></span>
+                                <span className="text-[10px] font-black uppercase tracking-wider text-[#A9791F]">
                                     {selectedEvent.status_event || 'Upcoming'}
                                 </span>
                             </div>
@@ -120,7 +120,7 @@ export default function Index({ auth, events, filters, clients, pegawais }) {
                         <div className="p-8">
                             <h2 className="mb-1 text-2xl font-extrabold text-gray-900">{selectedEvent.nama_event}</h2>
                             {selectedEvent.kategori_event && (
-                                <span className="inline-block mb-3 px-3 py-1 bg-pink-50 text-[#FF2D55] text-[10px] font-black uppercase tracking-wider rounded-full">
+                                <span className="inline-block mb-3 px-3 py-1 bg-pink-50 text-[#A9791F] text-[10px] font-black uppercase tracking-wider rounded-full">
                                     {selectedEvent.kategori_event}
                                 </span>
                             )}
@@ -132,7 +132,7 @@ export default function Index({ auth, events, filters, clients, pegawais }) {
                             <div className="flex gap-2 p-1 mb-6 bg-gray-100 rounded-2xl w-fit">
                                 <button
                                     onClick={() => handleTabSwitch('detail')}
-                                    className={`px-6 py-2 rounded-xl text-sm font-bold transition-all ${modalTab === 'detail' ? 'bg-white text-[#FF2D55] shadow-sm' : 'text-gray-500'}`}
+                                    className={`px-6 py-2 rounded-xl text-sm font-bold transition-all ${modalTab === 'detail' ? 'bg-white text-[#A9791F] shadow-sm' : 'text-gray-500'}`}
                                 >
                                     Detail
                                 </button>
@@ -275,19 +275,19 @@ export default function Index({ auth, events, filters, clients, pegawais }) {
                         <label className="text-xs font-bold text-gray-500">Range Tanggal Awal</label>
                         <input type="date" value={filterData.tgl_awal}
                             onChange={e => handleFilterChange('tgl_awal', e.target.value)}
-                            className="p-2.5 border border-gray-200 rounded-2xl text-sm focus:ring-[#FF2D55] bg-gray-50" />
+                            className="p-2.5 border border-gray-200 rounded-2xl text-sm focus:ring-[#A9791F] bg-gray-50" />
                     </div>
                     <div className="flex flex-col gap-1">
                         <label className="text-xs font-bold text-gray-500">Range Tanggal Akhir</label>
                         <input type="date" value={filterData.tgl_akhir}
                             onChange={e => handleFilterChange('tgl_akhir', e.target.value)}
-                            className="p-2.5 border border-gray-200 rounded-2xl text-sm focus:ring-[#FF2D55] bg-gray-50" />
+                            className="p-2.5 border border-gray-200 rounded-2xl text-sm focus:ring-[#A9791F] bg-gray-50" />
                     </div>
                     <div className="flex flex-col gap-1">
                         <label className="text-xs font-bold text-gray-500">Kategori Event</label>
                         <select value={filterData.kategori}
                             onChange={e => handleFilterChange('kategori', e.target.value)}
-                            className="p-2.5 border border-gray-200 rounded-2xl text-sm focus:ring-[#FF2D55] bg-gray-50">
+                            className="p-2.5 border border-gray-200 rounded-2xl text-sm focus:ring-[#A9791F] bg-gray-50">
                             <option value="">Semua Kategori</option>
                             <option value="Konser">Konser</option>
                             <option value="Wedding">Wedding</option>
@@ -301,7 +301,7 @@ export default function Index({ auth, events, filters, clients, pegawais }) {
                         <label className="text-xs font-bold text-gray-500">Client</label>
                         <select value={filterData.id_client}
                             onChange={e => handleFilterChange('id_client', e.target.value)}
-                            className="p-2.5 border border-gray-200 rounded-2xl text-sm focus:ring-[#FF2D55] bg-gray-50">
+                            className="p-2.5 border border-gray-200 rounded-2xl text-sm focus:ring-[#A9791F] bg-gray-50">
                             <option value="">Semua Client</option>
                             {clients.map(c => <option key={c.id} value={c.id}>{c.nama_client}</option>)}
                         </select>
@@ -310,7 +310,7 @@ export default function Index({ auth, events, filters, clients, pegawais }) {
                         <label className="text-xs font-bold text-gray-500">PIC Event</label>
                         <select value={filterData.id_pegawai}
                             onChange={e => handleFilterChange('id_pegawai', e.target.value)}
-                            className="p-2.5 border border-gray-200 rounded-2xl text-sm focus:ring-[#FF2D55] bg-gray-50">
+                            className="p-2.5 border border-gray-200 rounded-2xl text-sm focus:ring-[#A9791F] bg-gray-50">
                             <option value="">Semua PIC</option>
                             {pegawais.map(p => <option key={p.id_pegawai} value={p.id_pegawai}>{p.nama_pegawai}</option>)}
                         </select>
@@ -321,7 +321,7 @@ export default function Index({ auth, events, filters, clients, pegawais }) {
                             <Search className="absolute text-gray-400 left-3 top-3" size={18} />
                             <input type="text" placeholder="Search" value={searchTerm}
                                 onChange={e => setSearchTerm(e.target.value)}
-                                className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-2xl text-sm focus:ring-[#FF2D55] focus:border-[#FF2D55] bg-gray-50" />
+                                className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-2xl text-sm focus:ring-[#A9791F] focus:border-[#A9791F] bg-gray-50" />
                         </div>
                     </form>
                 </div>
@@ -340,8 +340,8 @@ export default function Index({ auth, events, filters, clients, pegawais }) {
                                     className="w-full h-56 object-cover rounded-[2rem]"
                                 />
                                 <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-1.5 rounded-full shadow-sm flex items-center gap-1.5">
-                                    <span className={`w-1.5 h-1.5 rounded-full inline-block ${event.status_event === 'Upcoming' ? 'bg-orange-500' : 'bg-[#FF2D55]'}`}></span>
-                                    <span className={`text-[10px] font-black uppercase tracking-wider ${event.status_event === 'Upcoming' ? 'text-orange-500' : 'text-[#FF2D55]'}`}>
+                                    <span className={`w-1.5 h-1.5 rounded-full inline-block ${event.status_event === 'Upcoming' ? 'bg-orange-500' : 'bg-[#A9791F]'}`}></span>
+                                    <span className={`text-[10px] font-black uppercase tracking-wider ${event.status_event === 'Upcoming' ? 'text-orange-500' : 'text-[#A9791F]'}`}>
                                         {event.status_event || 'Upcoming'}
                                     </span>
                                 </div>
@@ -363,11 +363,11 @@ export default function Index({ auth, events, filters, clients, pegawais }) {
                         </div>
 
                         <div className="px-8 pb-8">
-                            <h3 className="mb-1 text-xl font-bold text-gray-900 transition-colors group-hover:text-[#FF2D55] line-clamp-1">
+                            <h3 className="mb-1 text-xl font-bold text-gray-900 transition-colors group-hover:text-[#A9791F] line-clamp-1">
                                 {event.nama_event}
                             </h3>
                             {event.kategori_event && (
-                                <span className="inline-block mb-3 px-3 py-1 bg-pink-50 text-[#FF2D55] text-[10px] font-black uppercase tracking-wider rounded-full">
+                                <span className="inline-block mb-3 px-3 py-1 bg-pink-50 text-[#A9791F] text-[10px] font-black uppercase tracking-wider rounded-full">
                                     {event.kategori_event}
                                 </span>
                             )}
@@ -391,7 +391,7 @@ export default function Index({ auth, events, filters, clients, pegawais }) {
                             <div className="flex gap-3">
                                 <button
                                     onClick={() => handleOpenModal(event, 'detail')}
-                                    className="flex-1 py-3.5 bg-pink-50 text-[#FF2D55] font-bold rounded-2xl hover:bg-pink-100 transition-colors text-sm"
+                                    className="flex-1 py-3.5 bg-pink-50 text-[#A9791F] font-bold rounded-2xl hover:bg-pink-100 transition-colors text-sm"
                                 >
                                     Detail
                                 </button>
@@ -415,7 +415,7 @@ export default function Index({ auth, events, filters, clients, pegawais }) {
             {/* --- FLOATING ACTION BUTTON --- */}
             <Link
                 href={route('manajemen.event.create')}
-                className="fixed bottom-10 right-10 bg-[#FF2D55] text-white px-8 py-4 rounded-full shadow-2xl shadow-[#FF2D55]/40 hover:scale-105 active:scale-95 transition-all flex items-center gap-3 z-50"
+                className="fixed bottom-10 right-10 bg-[#A9791F] text-white px-8 py-4 rounded-full shadow-2xl shadow-[#A9791F]/40 hover:scale-105 active:scale-95 transition-all flex items-center gap-3 z-50"
             >
                 <Plus size={24} strokeWidth={3} />
                 <span className="text-lg font-bold">Tambah Event</span>

@@ -93,7 +93,7 @@ export default function CreateClient({ auth }) {
                         <button
                             type="submit"
                             disabled={processing}
-                            className="px-12 py-3 bg-[#FF2D55] text-white rounded-full font-bold shadow-lg shadow-red-200 hover:bg-red-600 transition-all"
+                            className="px-12 py-3 bg-[#A9791F] text-white rounded-full font-bold shadow-lg shadow-red-200 hover:bg-red-600 transition-all"
                         >
                             {processing ? 'Processing...' : 'Submit'}
                         </button>

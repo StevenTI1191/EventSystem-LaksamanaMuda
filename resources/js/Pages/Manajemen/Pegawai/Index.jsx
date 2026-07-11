@@ -44,7 +44,7 @@ export default function PegawaiIndex({ auth, internal, eksternal }) {
 
     const PegawaiCard = ({ pegawai }) => (
         <div className="flex items-start gap-4 p-4 bg-white border border-gray-100 shadow-sm rounded-2xl">
-            <div className="flex items-center justify-center flex-shrink-0 w-14 h-14 text-lg font-black rounded-full bg-red-50 text-[#FF2D55]">
+            <div className="flex items-center justify-center flex-shrink-0 w-14 h-14 text-lg font-black rounded-full bg-red-50 text-[#A9791F]">
                 {pegawai.nama_pegawai.substring(0, 2).toUpperCase()}
             </div>
 
@@ -52,7 +52,7 @@ export default function PegawaiIndex({ auth, internal, eksternal }) {
                 <div className="flex items-start justify-between gap-2">
                     <div>
                         <p className="text-sm font-extrabold text-gray-800 truncate">{pegawai.nama_pegawai}</p>
-                        <p className="text-xs font-semibold text-[#FF2D55]">{pegawai.posisi_pegawai}</p>
+                        <p className="text-xs font-semibold text-[#A9791F]">{pegawai.posisi_pegawai}</p>
                     </div>
                     <div className="flex items-center flex-shrink-0 gap-1">
                         <button
@@ -91,7 +91,7 @@ export default function PegawaiIndex({ auth, internal, eksternal }) {
                     {(pegawai.posisi_pegawai === 'EventMarketing' || pegawai.posisi_pegawai === 'Event Marketing') && (
                         <Link
                             href={route('manajemen.evaluasi.pegawai', pegawai.id_pegawai)}
-                            className="inline-flex items-center gap-1 mt-1.5 text-xs font-bold text-[#FF2D55] hover:underline"
+                            className="inline-flex items-center gap-1 mt-1.5 text-xs font-bold text-[#A9791F] hover:underline"
                         >
                             📊 Lihat closing rate di Evaluasi Kinerja →
                         </Link>
@@ -101,7 +101,7 @@ export default function PegawaiIndex({ auth, internal, eksternal }) {
                 <div className="flex gap-2 mt-3">
                     <button
                         onClick={() => setViewModal(pegawai)}
-                        className="px-4 py-1 text-xs font-bold text-white bg-[#FF2D55] rounded-lg hover:bg-[#e02249] transition-colors"
+                        className="px-4 py-1 text-xs font-bold text-white bg-[#A9791F] rounded-lg hover:bg-[#7A560F] transition-colors"
                     >
                         View
                     </button>
@@ -124,7 +124,7 @@ export default function PegawaiIndex({ auth, internal, eksternal }) {
                 <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">List Pegawai</h1>
                 <Link
                     href={route('manajemen.pegawai.create')}
-                    className="flex items-center gap-2 px-5 py-2 bg-[#FF2D55] text-white text-sm font-bold rounded-xl hover:bg-[#e02249] transition-colors shadow-md shadow-[#FF2D55]/20"
+                    className="flex items-center gap-2 px-5 py-2 bg-[#A9791F] text-white text-sm font-bold rounded-xl hover:bg-[#7A560F] transition-colors shadow-md shadow-[#A9791F]/20"
                 >
                     <Plus size={16} strokeWidth={3} />
                     Add Pegawai
@@ -179,7 +179,7 @@ export default function PegawaiIndex({ auth, internal, eksternal }) {
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
                     <div className="w-full max-w-md overflow-hidden bg-white shadow-xl rounded-2xl">
                         {/* Header */}
-                        <div className="relative p-6 bg-gradient-to-br from-[#FF2D55] to-[#FF5722]">
+                        <div className="relative p-6 bg-gradient-to-br from-[#A9791F] to-[#FF5722]">
                             <button
                                 onClick={() => setViewModal(null)}
                                 className="absolute top-4 right-4 p-1.5 text-white/70 hover:text-white hover:bg-white/20 rounded-lg transition-colors"
@@ -204,7 +204,7 @@ export default function PegawaiIndex({ auth, internal, eksternal }) {
                         <div className="p-6 space-y-4">
                             <div className="flex items-center gap-3">
                                 <div className="flex items-center justify-center flex-shrink-0 w-8 h-8 rounded-lg bg-pink-50">
-                                    <Phone size={14} className="text-[#FF2D55]" />
+                                    <Phone size={14} className="text-[#A9791F]" />
                                 </div>
                                 <div>
                                     <p className="text-[10px] text-gray-400 font-semibold uppercase tracking-wider">No HP</p>
@@ -214,7 +214,7 @@ export default function PegawaiIndex({ auth, internal, eksternal }) {
 
                             <div className="flex items-center gap-3">
                                 <div className="flex items-center justify-center flex-shrink-0 w-8 h-8 rounded-lg bg-pink-50">
-                                    <Mail size={14} className="text-[#FF2D55]" />
+                                    <Mail size={14} className="text-[#A9791F]" />
                                 </div>
                                 <div>
                                     <p className="text-[10px] text-gray-400 font-semibold uppercase tracking-wider">Email</p>
@@ -224,7 +224,7 @@ export default function PegawaiIndex({ auth, internal, eksternal }) {
 
                             <div className="flex items-center gap-3">
                                 <div className="flex items-center justify-center flex-shrink-0 w-8 h-8 rounded-lg bg-pink-50">
-                                    <Briefcase size={14} className="text-[#FF2D55]" />
+                                    <Briefcase size={14} className="text-[#A9791F]" />
                                 </div>
                                 <div>
                                     <p className="text-[10px] text-gray-400 font-semibold uppercase tracking-wider">Total Event</p>
@@ -234,7 +234,7 @@ export default function PegawaiIndex({ auth, internal, eksternal }) {
 
                             <div className="flex items-center gap-3">
                                 <div className="flex items-center justify-center flex-shrink-0 w-8 h-8 rounded-lg bg-pink-50">
-                                    <Wallet size={14} className="text-[#FF2D55]" />
+                                    <Wallet size={14} className="text-[#A9791F]" />
                                 </div>
                                 <div>
                                     <p className="text-[10px] text-gray-400 font-semibold uppercase tracking-wider">Gaji Pokok</p>
@@ -249,7 +249,7 @@ export default function PegawaiIndex({ auth, internal, eksternal }) {
                             {viewModal.jenis_pegawai === 'Eksternal' && (
                                 <div className="flex items-center gap-3">
                                     <div className="flex items-center justify-center flex-shrink-0 w-8 h-8 rounded-lg bg-pink-50">
-                                        <Calendar size={14} className="text-[#FF2D55]" />
+                                        <Calendar size={14} className="text-[#A9791F]" />
                                     </div>
                                     <div>
                                         <p className="text-[10px] text-gray-400 font-semibold uppercase tracking-wider">Rekomendasi Re-hire</p>
@@ -272,7 +272,7 @@ export default function PegawaiIndex({ auth, internal, eksternal }) {
                         <div className="flex gap-3 px-6 pb-6">
                             <Link
                                 href={route('manajemen.evaluasi.pegawai', viewModal.id_pegawai)}
-                                className="flex-1 py-2.5 text-sm font-bold text-center text-white bg-[#FF2D55] rounded-xl hover:bg-[#e02249] transition-colors"
+                                className="flex-1 py-2.5 text-sm font-bold text-center text-white bg-[#A9791F] rounded-xl hover:bg-[#7A560F] transition-colors"
                             >
                                 Lihat Evaluasi
                             </Link>
@@ -309,7 +309,7 @@ export default function PegawaiIndex({ auth, internal, eksternal }) {
                             value={noteText}
                             onChange={e => setNoteText(e.target.value)}
                             placeholder="Tulis catatan untuk pegawai ini..."
-                            className="w-full p-3 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:ring-[#FF2D55] focus:border-[#FF2D55] resize-none"
+                            className="w-full p-3 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:ring-[#A9791F] focus:border-[#A9791F] resize-none"
                         />
 
                         <div className="flex justify-end gap-3 mt-4">
@@ -322,7 +322,7 @@ export default function PegawaiIndex({ auth, internal, eksternal }) {
                             <button
                                 onClick={saveNote}
                                 disabled={saving}
-                                className="px-5 py-2 text-sm font-bold text-white bg-[#FF2D55] rounded-xl hover:bg-[#e02249] disabled:opacity-60"
+                                className="px-5 py-2 text-sm font-bold text-white bg-[#A9791F] rounded-xl hover:bg-[#7A560F] disabled:opacity-60"
                             >
                                 {saving ? 'Menyimpan...' : 'Simpan'}
                             </button>

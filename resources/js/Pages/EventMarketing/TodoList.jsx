@@ -72,10 +72,10 @@ export default function TodoList({ event, tugas }) {
                     </Link>
                     <h1 className="text-3xl font-extrabold text-gray-900">To-Do List</h1>
                     <div className="flex items-center gap-2 mt-1">
-                        <div className="w-2 h-2 rounded-full bg-[#FF2D55]" />
+                        <div className="w-2 h-2 rounded-full bg-[#A9791F]" />
                         <p className="font-medium text-gray-500">{event.nama_event}</p>
                         {event.kategori_event && (
-                            <span className="px-2 py-0.5 bg-pink-50 text-[#FF2D55] text-[10px] font-black uppercase tracking-wider rounded-full">
+                            <span className="px-2 py-0.5 bg-pink-50 text-[#A9791F] text-[10px] font-black uppercase tracking-wider rounded-full">
                                 {event.kategori_event}
                             </span>
                         )}
@@ -171,7 +171,7 @@ export default function TodoList({ event, tugas }) {
                                     value={form.nama_tugas}
                                     onChange={e => setForm({ ...form, nama_tugas: e.target.value })}
                                     onKeyDown={e => e.key === 'Enter' && handleAdd()}
-                                    className="w-full text-sm border border-gray-200 rounded-xl px-3 py-2 focus:ring-[#FF2D55] focus:border-[#FF2D55]"
+                                    className="w-full text-sm border border-gray-200 rounded-xl px-3 py-2 focus:ring-[#A9791F] focus:border-[#A9791F]"
                                 />
                             </div>
                             <div className="col-span-2">
@@ -182,7 +182,7 @@ export default function TodoList({ event, tugas }) {
                                     type="date"
                                     value={form.deadline_tugas}
                                     onChange={e => setForm({ ...form, deadline_tugas: e.target.value })}
-                                    className="w-full text-xs border border-gray-200 rounded-xl px-2 py-2 focus:ring-[#FF2D55]"
+                                    className="w-full text-xs border border-gray-200 rounded-xl px-2 py-2 focus:ring-[#A9791F]"
                                 />
                             </div>
                             <div className="col-span-3">
@@ -191,12 +191,12 @@ export default function TodoList({ event, tugas }) {
                                     placeholder="Catatan..."
                                     value={form.catatan_tugas}
                                     onChange={e => setForm({ ...form, catatan_tugas: e.target.value })}
-                                    className="w-full text-xs border border-gray-200 rounded-xl px-2 py-2 focus:ring-[#FF2D55]"
+                                    className="w-full text-xs border border-gray-200 rounded-xl px-2 py-2 focus:ring-[#A9791F]"
                                 />
                             </div>
                             <div className="flex justify-end col-span-2 gap-2">
                                 <button onClick={handleAdd} disabled={submitting}
-                                    className="px-3 py-1.5 bg-[#FF2D55] text-white text-xs font-bold rounded-xl hover:bg-[#e02249] disabled:opacity-60">
+                                    className="px-3 py-1.5 bg-[#A9791F] text-white text-xs font-bold rounded-xl hover:bg-[#7A560F] disabled:opacity-60">
                                     {submitting ? 'Menyimpan...' : 'Simpan'}
                                 </button>
                                 <button onClick={() => setAdding(false)}
@@ -232,7 +232,7 @@ export default function TodoList({ event, tugas }) {
                 {/* Add Task Button */}
                 <button
                     onClick={() => setAdding(true)}
-                    className="flex items-center gap-2 px-6 py-3 bg-[#FF2D55] text-white font-bold rounded-2xl hover:bg-[#e02249] transition-colors shadow-lg shadow-[#FF2D55]/30"
+                    className="flex items-center gap-2 px-6 py-3 bg-[#A9791F] text-white font-bold rounded-2xl hover:bg-[#7A560F] transition-colors shadow-lg shadow-[#A9791F]/30"
                 >
                     <Plus size={18} strokeWidth={3} />
                     Add Task

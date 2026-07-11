@@ -23,6 +23,6 @@ createInertiaApp({
         root.render(<App {...props} />);
     },
     progress: {
-        color: '#FF2D55', // Ganti ke merah Laksamana biar keren Ko!
+        color: '#A9791F', // Ganti ke merah Laksamana biar keren Ko!
     },
 });

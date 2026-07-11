@@ -7,7 +7,7 @@
     <style>
         body { margin: 0; padding: 0; background: #f4f4f5; font-family: 'Segoe UI', Arial, sans-serif; }
         .wrapper { max-width: 560px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
-        .header { background: linear-gradient(135deg, #FF2D55, #ff6b35); padding: 36px 40px; text-align: center; }
+        .header { background: linear-gradient(135deg, #A9791F, #ff6b35); padding: 36px 40px; text-align: center; }
         .header img { width: 56px; height: 56px; border-radius: 50%; background: #fff; padding: 4px; }
         .header h1 { color: #ffffff; font-size: 22px; margin: 16px 0 4px; font-weight: 700; }
         .header p { color: rgba(255,255,255,0.8); font-size: 14px; margin: 0; }
@@ -19,7 +19,7 @@
         .card-row:last-child { margin-bottom: 0; }
         .card-label { color: #6b7280; min-width: 120px; padding-right: 12px; }
         .card-value { color: #111827; font-weight: 600; text-align: right; max-width: 60%; }
-        .highlight { font-size: 20px; font-weight: 800; color: #FF2D55; }
+        .highlight { font-size: 20px; font-weight: 800; color: #A9791F; }
         .divider { border: none; border-top: 1px solid #f3f4f6; margin: 20px 0; }
         .footer { background: #f9fafb; padding: 24px 40px; text-align: center; border-top: 1px solid #f3f4f6; }
         .footer p { font-size: 12px; color: #9ca3af; margin: 0; line-height: 1.6; }

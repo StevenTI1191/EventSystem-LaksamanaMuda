@@ -35,7 +35,7 @@ export default function LoginPegawai({ status }) {
                         type="email"
                         placeholder="Enter your email"
                         value={data.email}
-                        className="mt-1 block w-full border-gray-300 focus:border-[#A50021] focus:ring-[#A50021] rounded-lg shadow-sm"
+                        className="mt-1 block w-full border-gray-300 focus:border-[#4E3708] focus:ring-[#4E3708] rounded-lg shadow-sm"
                         onChange={(e) => setData('email', e.target.value)}
                     />
                     <InputError message={errors.email} className="mt-2" />
@@ -48,7 +48,7 @@ export default function LoginPegawai({ status }) {
                         type="password"
                         placeholder="Enter your password"
                         value={data.password}
-                        className="mt-1 block w-full border-gray-300 focus:border-[#A50021] focus:ring-[#A50021] rounded-lg shadow-sm"
+                        className="mt-1 block w-full border-gray-300 focus:border-[#4E3708] focus:ring-[#4E3708] rounded-lg shadow-sm"
                         onChange={(e) => setData('password', e.target.value)}
                     />
                     <InputError message={errors.password} className="mt-2" />
@@ -56,7 +56,7 @@ export default function LoginPegawai({ status }) {
 
                 <div>
                     <PrimaryButton
-                        className="w-full justify-center py-3 bg-[#A50021] hover:bg-[#80001a] text-white font-bold rounded-lg transition shadow-lg"
+                        className="w-full justify-center py-3 bg-[#4E3708] hover:bg-[#80001a] text-white font-bold rounded-lg transition shadow-lg"
                         disabled={processing}
                     >
                         Sign in

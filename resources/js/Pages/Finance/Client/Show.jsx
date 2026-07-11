@@ -62,7 +62,7 @@ export default function FinanceClientShow({ auth, client, events, pics, kategori
                                 <X size={18} className="text-gray-600" />
                             </button>
                             <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-1.5 rounded-full shadow-sm">
-                                <span className="text-[10px] font-black uppercase tracking-wider text-[#FF2D55]">
+                                <span className="text-[10px] font-black uppercase tracking-wider text-[#A9791F]">
                                     ● {selectedEvent.status_event || 'Upcoming'}
                                 </span>
                             </div>
@@ -70,7 +70,7 @@ export default function FinanceClientShow({ auth, client, events, pics, kategori
                         <div className="p-8">
                             <h2 className="mb-1 text-2xl font-extrabold text-gray-900">{selectedEvent.nama_event}</h2>
                             {selectedEvent.kategori_event && (
-                                <span className="inline-block mb-3 px-3 py-1 bg-pink-50 text-[#FF2D55] text-[10px] font-black uppercase tracking-wider rounded-full">
+                                <span className="inline-block mb-3 px-3 py-1 bg-pink-50 text-[#A9791F] text-[10px] font-black uppercase tracking-wider rounded-full">
                                     {selectedEvent.kategori_event}
                                 </span>
                             )}
@@ -110,7 +110,7 @@ export default function FinanceClientShow({ auth, client, events, pics, kategori
                 <div className="flex items-center gap-2 mt-2">
                     <Link
                         href={route('finance.client.index')}
-                        className="flex items-center gap-1 px-3 py-1 text-xs font-bold text-white bg-[#FF2D55] rounded-full hover:bg-red-600 transition-colors"
+                        className="flex items-center gap-1 px-3 py-1 text-xs font-bold text-white bg-[#A9791F] rounded-full hover:bg-red-600 transition-colors"
                     >
                         <ChevronLeft size={12} />
                         Kembali
@@ -159,12 +159,12 @@ export default function FinanceClientShow({ auth, client, events, pics, kategori
 
             <div className="overflow-hidden bg-white border border-gray-100 shadow-sm rounded-2xl">
                 <div className="px-6 py-4 border-b border-gray-100">
-                    <h2 className="text-base font-extrabold text-[#FF2D55]">{client.nama_client}</h2>
+                    <h2 className="text-base font-extrabold text-[#A9791F]">{client.nama_client}</h2>
                     <p className="text-xs text-gray-400">{client.perusahaan_client}</p>
                 </div>
                 <table className="w-full">
                     <thead>
-                        <tr className="bg-[#FF2D55]">
+                        <tr className="bg-[#A9791F]">
                             <th className="w-12 px-6 py-3 text-xs font-bold tracking-wider text-left text-white uppercase">No</th>
                             <th className="px-6 py-3 text-xs font-bold tracking-wider text-left text-white uppercase">Event</th>
                             <th className="px-6 py-3 text-xs font-bold tracking-wider text-left text-white uppercase">Tanggal</th>
@@ -186,9 +186,9 @@ export default function FinanceClientShow({ auth, client, events, pics, kategori
                                 <td className="px-6 py-4">
                                     <button
                                         onClick={() => setSelectedEvent(event)}
-                                        className="flex items-center justify-center w-8 h-8 border-2 border-[#FF2D55] rounded-lg hover:bg-pink-50 transition-colors"
+                                        className="flex items-center justify-center w-8 h-8 border-2 border-[#A9791F] rounded-lg hover:bg-pink-50 transition-colors"
                                     >
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF2D55" strokeWidth="2">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A9791F" strokeWidth="2">
                                             <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/>
                                         </svg>
                                     </button>
